@@ -6,7 +6,7 @@
   <title>About &mdash; Airbnb &amp; Los Angeles</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,450;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -14,7 +14,10 @@
 
   <nav class="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="index.html" class="nav-brand">Airbnb &amp; LA</a>
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        Airbnb &amp; LA
+      </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -47,7 +50,7 @@
     </div>
   </nav>
 
-  <header class="page-header">
+  <header class="page-header-clean">
     <span class="eyebrow">About</span>
     <h1>About Our Project</h1>
     <p class="subtitle">Our project, our process, and our team.</p>
@@ -58,72 +61,74 @@
 
       <section class="section">
         <h2>About Our Project</h2>
+        <div class="divider"></div>
         <div class="placeholder"><span>Content goes here</span></div>
       </section>
 
       <section class="section">
         <h2>What went into our project?</h2>
+        <div class="divider"></div>
 
         <div class="subsection">
           <h3>Selecting Our Sources</h3>
-          <div class="placeholder"><span>Content goes here</span></div>
+          <p><strong>InsideAirbnb</strong> provides a high-resolution view of platform-generated housing supply, while the <strong>ACS</strong> offers a structural view of neighborhood demographics and socioeconomic conditions.</p>
+          <p>By <strong>spatially joining listings</strong> (latitude/longitude) to census tracts, we do not claim that area demographics describe individual hosts or guests. Instead, we analyze <strong>co-location patterns</strong>:</p>
+          <ul>
+            <li>Where do <strong>entire-home listings</strong> cluster relative to income levels?</li>
+            <li>Where do <strong>multi-listing hosts</strong> appear in relation to rent-burdened areas?</li>
+            <li>Which <strong>demographic contexts</strong> overlap with high Airbnb density?</li>
+          </ul>
+          <p>If we relied only on InsideAirbnb, Los Angeles would act as a marketplace of listings. If we relied only on the ACS, Los Angeles would act as static demographic zones. By combining them, we analyze how a <strong>digital platform economy</strong> overlaps and interacts with long-term community structures, helping answer our central research question: <em>How does Airbnb spatially shape and commodify communities in Los Angeles &mdash; and for whom?</em></p>
         </div>
 
         <div class="subsection">
           <h3>Processing Our Data</h3>
-          <div class="placeholder"><span>Content goes here</span></div>
+          <p>We cleaned and structured the <strong>InsideAirbnb listings</strong>, standardized price variables, and identified <strong>multi-listing hosts</strong>. Using geographic coordinates, we corresponded listings to <strong>census tracts</strong> and joined ACS demographic data. This spatial join allows us to calculate <strong>listings per capita</strong>, examine entire-home concentration, identify professional host clustering, and compare Airbnb density to neighborhood-level income and housing conditions.</p>
+          <p>We also observed <strong>review timestamps</strong> and <strong>daily calendar data</strong> to compare visible patterns before and after 2020. While these methods do not signify confirmed bookings, they provide a suggestion of platform-visible change over time.</p>
+          <p>Methodologically, we prevent <strong>ecological misconceptions</strong> by not attaching tract-level demographics to individual hosts or guests. Instead, we analyze physical co-location patterns. We also treat <strong>data gaps</strong>&mdash;like missing booking records and displacement data&mdash;as significant limits that form interpretation.</p>
         </div>
 
         <div class="subsection">
           <h3>Presenting Our Narrative</h3>
-          <div class="placeholder"><span>Content goes here</span></div>
+          <p>We designed our site in <strong>Figma</strong> first so we could lock in the layout, spacing, and visual style before writing any code. Then we built the actual website in <strong>JavaScript</strong>, using <strong>VS Code</strong> as our IDE to develop and organize the project efficiently.</p>
+          <p>To publish the site, we deployed it on <strong>Vercel</strong>, which made hosting straightforward and let us push updates quickly without manually managing servers or file uploads. This workflow&mdash;Figma for planning, JavaScript for implementation, VS Code for development, and Vercel for deployment&mdash;helped us stay consistent between the design and final product while keeping iteration fast as we refined the site.</p>
         </div>
       </section>
 
       <section class="section" id="team">
         <h2>Meet the Team</h2>
+        <div class="divider"></div>
         <div class="team-grid">
           <div class="team-card">
-            <div class="avatar" aria-label="Profile photo placeholder">Photo</div>
-            <h4>Name Placeholder</h4>
+            <div class="avatar" aria-label="Blair Warren's profile photo"><img src="assets/images/Blair-Warren.png" alt="Blair Warren"></div>
+            <h4>Blair Warren</h4>
             <p class="role">Project Manager</p>
-            <p class="bio">Short bio goes here.</p>
+            <p class="bio">Blair is a 4th year Statistics &amp; Data Science student from Chicago. As the group data specialist, she has been in charge of cleaning and preparing the data, and making it usable for the group to draw insights and visualizations from.</p>
           </div>
           <div class="team-card">
-            <div class="avatar" aria-label="Profile photo placeholder">Photo</div>
-            <h4>Name Placeholder</h4>
-            <p class="role">Web Manager</p>
-            <p class="bio">Short bio goes here.</p>
+            <div class="avatar" aria-label="Charles's profile photo"><img src="assets/images/Charles-Zhu.png" alt="Charles"></div>
+            <h4>Charles Zhu</h4>
+            <p class="role">Web Developer</p>
+            <p class="bio">Charles is a 4th year Computer Science student at UCLA interested in software engineering. As the group's website developer, he designed the site in Figma and built the project's structure, navigation, and page layouts to translate the team's research into a clear, interactive narrative. He integrated the team's visuals and maps into a cohesive, responsive, and accessible interface, developed the site in JavaScript using VS Code, and deployed it on Vercel.</p>
           </div>
           <div class="team-card">
-            <div class="avatar" aria-label="Profile photo placeholder">Photo</div>
-            <h4>Name Placeholder</h4>
+            <div class="avatar" aria-label="Alexia Baca's profile photo"><img src="assets/images/Alexia-Baca.png" alt="Alexia Baca"></div>
+            <h4>Alexia Baca</h4>
             <p class="role">Data Specialist</p>
-            <p class="bio">Short bio goes here.</p>
+            <p class="bio">Alexia is a Global Studies student interested in international business, entrepreneurship, logistics, and cross-border systems. She brings an interdisciplinary perspective blending social science analysis with data interpretation, digital storytelling, and research design. She wrote the data critique for the ACS dataset and contributed to the sources and processing sections.</p>
           </div>
           <div class="team-card">
-            <div class="avatar" aria-label="Profile photo placeholder">Photo</div>
-            <h4>Name Placeholder</h4>
-            <p class="role">Data Specialist</p>
-            <p class="bio">Short bio goes here.</p>
-          </div>
-          <div class="team-card">
-            <div class="avatar" aria-label="Profile photo placeholder">Photo</div>
-            <h4>Name Placeholder</h4>
+            <div class="avatar" aria-label="Erica Tovar's profile photo"><img src="assets/images/Erica-Tovar.png" alt="Erica Tovar"></div>
+            <h4>Erica Tovar</h4>
             <p class="role">Research Lead</p>
-            <p class="bio">Short bio goes here.</p>
-          </div>
-          <div class="team-card">
-            <div class="avatar" aria-label="Profile photo placeholder">Photo</div>
-            <h4>Name Placeholder</h4>
-            <p class="role">Writer</p>
-            <p class="bio">Short bio goes here.</p>
+            <p class="bio">Erica is a Digital Humanities student interested in platform economies, housing policy, and city disparity. She focused on demographic contextualization, methodological framing, and theoretical incorporation. Her research frames Airbnb as a spatially rooted platform economy, drawing on scholarship in urban planning, digital trust systems, and platform disruption theory.</p>
           </div>
         </div>
       </section>
 
       <section class="section">
         <h2>Acknowledgements</h2>
+        <div class="divider"></div>
         <div class="placeholder"><span>Content goes here</span></div>
       </section>
 
