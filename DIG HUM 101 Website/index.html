@@ -6,7 +6,7 @@
   <title>Airbnb &amp; Los Angeles</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,450;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -15,7 +15,10 @@
   <!-- Navbar -->
   <nav class="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="index.html" class="nav-brand">Airbnb &amp; LA</a>
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        Airbnb &amp; LA
+      </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -48,14 +51,20 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero with LA skyline -->
   <header class="hero">
-    <span class="eyebrow">DH 101 Research Project</span>
-    <h1>Airbnb &amp; Los Angeles</h1>
-    <p class="subtitle">&ldquo;How does Airbnb spatially shape and commodify communities in Los Angeles, and for whom?&rdquo;</p>
-    <div class="hero-buttons">
-      <a href="page1.html" class="btn btn-primary">Start with Background</a>
-      <a href="page5.html" class="btn btn-outline">Jump to Argument 1</a>
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=1600&q=80" alt="Los Angeles skyline at sunset">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="eyebrow">DH 101 Research Project</span>
+      <h1>Airbnb &amp; Los Angeles</h1>
+      <p class="subtitle">How does Airbnb spatially shape and commodify communities in Los Angeles, and for whom?</p>
+      <div class="hero-buttons">
+        <a href="page1.html" class="btn btn-primary">Start with Background</a>
+        <a href="page5.html" class="btn btn-outline">Jump to Argument 1</a>
+      </div>
     </div>
   </header>
 
@@ -64,41 +73,66 @@
     <div class="container">
 
       <section class="section">
+        <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h2>What is being commodified?</h2>
+        <div class="divider"></div>
         <div class="placeholder"><span>Content goes here</span></div>
       </section>
 
       <section class="section">
-        <h2>Why Los Angeles?</h2>
-        <div class="placeholder"><span>Content goes here</span></div>
+        <div class="feature-row">
+          <div class="feature-image">
+            <img src="https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=800&q=80" alt="Venice Beach neighborhood in Los Angeles">
+          </div>
+          <div class="feature-text">
+            <h2>Why Los Angeles?</h2>
+            <div class="divider"></div>
+            <div class="placeholder"><span>Content goes here</span></div>
+          </div>
+        </div>
       </section>
 
       <section class="section">
-        <h2>How we approach the question</h2>
-        <p class="section-intro">A spatial and community-centered lens.</p>
-        <div class="placeholder"><span>Content goes here</span></div>
+        <div class="feature-row reverse">
+          <div class="feature-image">
+            <img src="https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&q=80" alt="Map view of urban neighborhoods">
+          </div>
+          <div class="feature-text">
+            <h2>How we approach the question</h2>
+            <p class="section-intro">A spatial and community-centered lens.</p>
+            <div class="divider"></div>
+            <div class="placeholder"><span>Content goes here</span></div>
+          </div>
+        </div>
       </section>
 
       <section class="section">
         <h2>Project Roadmap</h2>
+        <div class="divider"></div>
         <div class="card-grid">
           <div class="card">
-            <div class="card-icon">I</div>
-            <h3>Background</h3>
-            <p>Explore the history of short-term rentals in LA and the data behind our analysis.</p>
-            <a href="page1.html" class="btn btn-ghost">View Background &rarr;</a>
+            <div class="card-body">
+              <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 00-8-8z"/></svg></div>
+              <h3>Background</h3>
+              <p>Explore the history of short-term rentals in LA and the data behind our analysis.</p>
+              <a href="page1.html" class="btn btn-ghost">View Background &rarr;</a>
+            </div>
           </div>
           <div class="card">
-            <div class="card-icon">II</div>
-            <h3>Narrative</h3>
-            <p>Follow our three-part argument on spatial concentration, displacement, and community impact.</p>
-            <a href="page5.html" class="btn btn-ghost">View Narrative &rarr;</a>
+            <div class="card-body">
+              <div class="card-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+              <h3>Narrative</h3>
+              <p>Follow our three-part argument on spatial concentration, displacement, and community impact.</p>
+              <a href="page5.html" class="btn btn-ghost">View Narrative &rarr;</a>
+            </div>
           </div>
           <div class="card">
-            <div class="card-icon">III</div>
-            <h3>About</h3>
-            <p>Learn about the team, our methodology, and the tools we used to build this project.</p>
-            <a href="page6.html" class="btn btn-ghost">View About &rarr;</a>
+            <div class="card-body">
+              <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+              <h3>About</h3>
+              <p>Learn about the team, our methodology, and the tools we used to build this project.</p>
+              <a href="page6.html" class="btn btn-ghost">View About &rarr;</a>
+            </div>
           </div>
         </div>
       </section>
