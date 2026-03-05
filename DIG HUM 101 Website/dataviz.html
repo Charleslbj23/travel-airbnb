@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Visualizations &mdash; Airbnb &amp; Los Angeles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    /* ===== Data Viz Demo Section (removable) ===== */
+    .dv-section {
+      padding: 48px 0 56px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .dv-section:last-of-type {
+      border-bottom: none;
+    }
+    .dv-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .dv-badge {
+      background: var(--coral);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      font-family: var(--font-heading);
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+    .dv-title {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+    .dv-question {
+      margin: 8px 0 0;
+      font-size: 0.875rem;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .dv-chart-wrap {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 16px 16px;
+      border: 1px solid var(--border-light);
+      margin: 20px 0 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .dv-chart-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 12px;
+      font-family: var(--font-heading);
+    }
+    .dv-chart-source {
+      font-size: 0.7rem;
+      color: var(--gray-light);
+      text-align: center;
+      margin-top: 8px;
+      font-family: var(--font-heading);
+    }
+    .dv-notes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--dark-secondary);
+    }
+    .dv-note {
+      background: var(--bg-warm);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+    .dv-note-teal {
+      border-left: 3px solid var(--teal);
+    }
+    .dv-note-coral {
+      border-left: 3px solid var(--coral);
+    }
+    .dv-note-label {
+      font-weight: 700;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      font-family: var(--font-heading);
+    }
+    .dv-note-teal .dv-note-label { color: var(--teal); }
+    .dv-note-coral .dv-note-label { color: var(--coral); }
+    .dv-note p {
+      margin: 0;
+      font-size: 0.84rem;
+      line-height: 1.65;
+    }
+    .dv-page-footer {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--dark);
+      font-size: 0.75rem;
+      color: var(--gray-light);
+      font-family: var(--font-heading);
+    }
+    .dv-page-footer p {
+      margin: 4px 0;
+      color: var(--gray-light);
+    }
+    /* Scatter legend */
+    .dv-scatter-legend {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.7rem;
+      color: var(--gray);
+      font-family: var(--font-heading);
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .dv-scatter-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .dv-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .dv-chart-container {
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .dv-notes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        Airbnb &amp; LA
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <button aria-haspopup="true" aria-expanded="false">Background <span class="dropdown-arrow">&#9660;</span></button>
+          <div class="dropdown-menu">
+            <a href="page1.html">History</a>
+            <a href="page2.html">The Data</a>
+            <a href="timeline.html">Timeline</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <button class="active" aria-haspopup="true" aria-expanded="false">Narrative <span class="dropdown-arrow">&#9660;</span></button>
+          <div class="dropdown-menu">
+            <a href="page5.html">Argument 1</a>
+            <a href="page8.html">Argument 2</a>
+            <a href="page9.html">Argument 3</a>
+            <a href="page10.html">Conclusions</a>
+            <a href="dataviz.html" class="active">Data Viz</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <button aria-haspopup="true" aria-expanded="false">About <span class="dropdown-arrow">&#9660;</span></button>
+          <div class="dropdown-menu">
+            <a href="page6.html">About</a>
+            <a href="page6.html#team">The Team</a>
+            <a href="bibliography.html">Bibliography</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header-clean">
+    <span class="eyebrow">DH 101 &middot; Data Visualizations</span>
+    <h1>Airbnb &amp; Los Angeles</h1>
+    <p class="subtitle">How does Airbnb spatially shape and commodify communities in Los Angeles &mdash; and for whom? Five visualizations exploring 45,585 listings across LA County.</p>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <!-- VIZ 1 -->
+      <div class="dv-section">
+        <div class="dv-header">
+          <span class="dv-badge">Viz 1</span>
+          <h2 class="dv-title">Where Is Airbnb Concentrated? Top 20 Neighbourhoods</h2>
+        </div>
+        <p class="dv-question"><strong>Humanities Question:</strong> Where are Airbnb listings densest in Los Angeles, and is the platform dominated by whole-home rentals or casual room-sharing?</p>
+        <div class="dv-chart-wrap">
+          <p class="dv-chart-title">Top 20 Neighbourhoods by Listing Count (n=45,585 total)</p>
+          <div class="dv-chart-container" style="height:520px"><canvas id="chart1"></canvas></div>
+          <p class="dv-chart-source">Source: InsideAirbnb Los Angeles, December 2025 &middot; CC BY 4.0</p>
+        </div>
+        <div class="dv-notes">
+          <div class="dv-note dv-note-teal">
+            <p class="dv-note-label">Chart Type Selection</p>
+            <p>A horizontal stacked bar chart allows simultaneous comparison of two dimensions: total listing volume (bar length) and room type composition within each neighborhood (color segments). This dual encoding reveals not just where Airbnb is concentrated but what kind of housing is listed.</p>
+          </div>
+          <div class="dv-note dv-note-coral">
+            <p class="dv-note-label">Analysis</p>
+            <p>Listings cluster in coastal and entertainment-adjacent neighborhoods &mdash; Long Beach (1,906), Hollywood (1,758), Venice (1,529), and Santa Monica (1,243) lead the county. Entire homes dominate most neighborhoods at 70&ndash;90% of listings. However, Exposition Park and Rowland Heights stand out as exceptions where private rooms dominate.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIZ 2 -->
+      <div class="dv-section">
+        <div class="dv-header">
+          <span class="dv-badge">Viz 2</span>
+          <h2 class="dv-title">Who Profits? Host Professionalization Across LA County</h2>
+        </div>
+        <p class="dv-question"><strong>Humanities Question:</strong> Where is hosting professionalized into a commercial operation, and what does the prevalence of multi-listing hosts reveal about who benefits from the platform?</p>
+        <div class="dv-chart-wrap">
+          <p class="dv-chart-title">Listings by Host Type Across LA County</p>
+          <div class="dv-chart-container" style="height:340px"><canvas id="chart2"></canvas></div>
+          <p class="dv-chart-source">Source: InsideAirbnb (calculated_host_listings_count), December 2025</p>
+        </div>
+        <div class="dv-notes">
+          <div class="dv-note dv-note-teal">
+            <p class="dv-note-label">Chart Type Selection</p>
+            <p>A grouped bar chart enables direct side-by-side comparison of host categories across the three administrative neighbourhood groups. Unlike stacked bars, grouped bars make it easy to compare absolute counts of each host type, revealing that commercial operators (6+ listings) are not a fringe phenomenon but a structural market feature.</p>
+          </div>
+          <div class="dv-note dv-note-coral">
+            <p class="dv-note-label">Analysis</p>
+            <p>Commercial operators managing 6+ listings account for 31&ndash;35% of all listings across every neighbourhood group. In the City of LA alone, 8,047 listings (35.2%) belong to hosts with 6+ properties. Roughly one in three Airbnb units in LA operates as part of an informal hospitality business.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIZ 3 -->
+      <div class="dv-section">
+        <div class="dv-header">
+          <span class="dv-badge">Viz 3</span>
+          <h2 class="dv-title">Platform Growth and the COVID-19 Rupture</h2>
+        </div>
+        <p class="dv-question"><strong>Humanities Question:</strong> How has Airbnb activity in LA evolved over time, and what does the pandemic disruption reveal about the platform&rsquo;s relationship to tourism cycles?</p>
+        <div class="dv-chart-wrap">
+          <p class="dv-chart-title">New Listing Activations per Quarter, 2014&ndash;2025</p>
+          <div class="dv-chart-container" style="height:360px"><canvas id="chart3"></canvas></div>
+          <p class="dv-chart-source">Source: InsideAirbnb (first_review as listing activation proxy) &middot; HSO = Home Sharing Ordinance</p>
+        </div>
+        <div class="dv-notes">
+          <div class="dv-note dv-note-teal">
+            <p class="dv-note-label">Chart Type Selection</p>
+            <p>An area chart with a time axis is ideal for showing temporal trends and dramatic disruptions. The filled area emphasizes cumulative volume, while the COVID reference line creates a clear &ldquo;before and after&rdquo; visual. Monthly granularity reveals seasonal rhythms alongside macro-level growth and pandemic collapse.</p>
+          </div>
+          <div class="dv-note dv-note-coral">
+            <p class="dv-note-label">Analysis</p>
+            <p>Growth was steady from 2014&ndash;2019 with clear summer seasonality. COVID-19 caused a catastrophic collapse: new listing activations dropped from 210 in January 2020 to just 11 in April 2020 &mdash; a 95% decline. By 2024&ndash;2025, the platform surged past previous peaks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIZ 4 -->
+      <div class="dv-section">
+        <div class="dv-header">
+          <span class="dv-badge">Viz 4</span>
+          <h2 class="dv-title">Two Geographies of Commodification</h2>
+        </div>
+        <p class="dv-question"><strong>Humanities Question:</strong> Is different types of housing being commodified in wealthy coastal neighbourhoods versus lower-income inland communities, and what does that reveal about uneven platform impacts?</p>
+        <div class="dv-chart-wrap">
+          <p class="dv-chart-title">Entire Home % vs. Private Room %: High and Low Extremes (min. 50 listings)</p>
+          <div class="dv-chart-container" style="height:480px"><canvas id="chart4"></canvas></div>
+          <p class="dv-chart-source">Source: InsideAirbnb Los Angeles, December 2025</p>
+        </div>
+        <div class="dv-notes">
+          <div class="dv-note dv-note-teal">
+            <p class="dv-note-label">Chart Type Selection</p>
+            <p>A horizontal bar chart comparing the highest and lowest entire-home-percentage neighborhoods creates a visual divergence that communicates two distinct geographies. Selecting the extremes sharpens the contrast and invites the reader to ask why patterns differ.</p>
+          </div>
+          <div class="dv-note dv-note-coral">
+            <p class="dv-note-label">Analysis</p>
+            <p>In wealthy, coastal neighborhoods &mdash; Malibu (93.6%), Manhattan Beach (90.8%) &mdash; over 90% of listings are entire homes. In lower-income neighborhoods &mdash; Exposition Park (12.1%), University Park (25.0%) &mdash; private room-sharing dominates. This reveals two fundamentally different Airbnb economies.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIZ 5 -->
+      <div class="dv-section">
+        <div class="dv-header">
+          <span class="dv-badge">Viz 5</span>
+          <h2 class="dv-title">Connecting Platform Activity to Community Income</h2>
+        </div>
+        <p class="dv-question"><strong>Humanities Question:</strong> Does Airbnb listing concentration align with community income levels, and does the platform reinforce or disrupt LA&rsquo;s existing economic geography?</p>
+        <div class="dv-chart-wrap">
+          <p class="dv-chart-title">Airbnb Listings vs. Median Income by Census County Division</p>
+          <div class="dv-chart-container" style="height:420px"><canvas id="chart5"></canvas></div>
+          <div class="dv-scatter-legend">
+            <span><span class="dv-dot" style="background:var(--coral)"></span> Entire home &gt;80%</span>
+            <span><span class="dv-dot" style="background:#F2CC8F"></span> 65&ndash;80%</span>
+            <span><span class="dv-dot" style="background:var(--teal)"></span> &lt;65%</span>
+            <span style="margin-left:8px">Bubble size = listing count</span>
+          </div>
+          <p class="dv-chart-source">Sources: InsideAirbnb Dec 2025 &middot; U.S. Census Bureau ACS S1901</p>
+        </div>
+        <div class="dv-notes">
+          <div class="dv-note dv-note-teal">
+            <p class="dv-note-label">Chart Type Selection</p>
+            <p>A bubble scatter plot places each Census County Division at the intersection of two variables &mdash; median household income (x-axis) and Airbnb listing count (y-axis) &mdash; while bubble color encodes entire-home percentage. This three-dimensional encoding reveals whether Airbnb clusters in wealthy or lower-income areas.</p>
+          </div>
+          <div class="dv-note dv-note-coral">
+            <p class="dv-note-label">Analysis</p>
+            <p>High-income areas like Agoura Hills-Malibu ($170K median) and South Bay Cities ($161K) have fewer total listings but the highest entire-home rates (89&ndash;91%). The massive Los Angeles CCD dominates in volume (23,613 listings) at $80K median income. This confirms Airbnb&rsquo;s most intensive commodification occurs in wealthier communities.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page footer -->
+      <div class="dv-page-footer" style="margin-bottom: 40px;">
+        <p>Data: InsideAirbnb.com (CC BY 4.0) &middot; U.S. Census Bureau ACS 5-Year Estimates</p>
+        <p>DH 101 &mdash; Group 4A &middot; UCLA &middot; 2026</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Airbnb &amp; Los Angeles &mdash; A DH 101 Project</p>
+      <p>&copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+  // ===== DATA =====
+  const CORAL = '#FF385C';
+  const CORAL_DARK = '#E31C5F';
+  const TEAL = '#00A699';
+  const GOLD = '#F2CC8F';
+  const DARK = '#222222';
+  const GRAY = '#767676';
+
+  Chart.defaults.font.family = "'Nunito Sans', -apple-system, 'Segoe UI', sans-serif";
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = '#484848';
+
+  // --- VIZ 1: Horizontal Stacked Bar ---
+  const viz1Labels = ["Sherman Oaks","Woodland Hills","Mid-City","Rowland Heights","Beverly Grove","Burbank","Culver City","Exposition Park","Hollywood Hills West","Glendale","Alhambra","Hollywood Hills","Pasadena","Beverly Hills","Downtown","West Hollywood","Santa Monica","Venice","Hollywood","Long Beach"];
+  const viz1Entire = [442,441,402,236,489,503,516,79,622,613,486,626,653,784,900,985,986,1350,1361,1499];
+  const viz1Private = [88,99,151,332,94,131,126,575,61,106,234,103,143,149,224,169,249,177,353,373];
+  const viz1Shared = [2,2,2,3,0,1,0,1,1,2,2,0,0,2,11,3,2,2,10,14];
+  const viz1Hotel = [0,0,0,3,3,0,2,0,0,0,0,0,26,0,20,62,6,0,34,20];
+
+  new Chart(document.getElementById('chart1'), {
+    type: 'bar',
+    data: {
+      labels: viz1Labels,
+      datasets: [
+        { label: 'Entire home/apt', data: viz1Entire, backgroundColor: CORAL },
+        { label: 'Private room', data: viz1Private, backgroundColor: DARK },
+        { label: 'Shared room', data: viz1Shared, backgroundColor: TEAL },
+        { label: 'Hotel room', data: viz1Hotel, backgroundColor: GOLD }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { boxWidth: 14, padding: 16 } } },
+      scales: {
+        x: { stacked: true, grid: { color: '#EBEBEB' } },
+        y: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+
+  // --- VIZ 2: Grouped Bar ---
+  new Chart(document.getElementById('chart2'), {
+    type: 'bar',
+    data: {
+      labels: ['City of Los Angeles', 'Other Cities', 'Unincorporated Areas'],
+      datasets: [
+        { label: 'Single-listing host (1)', data: [9271, 6454, 1425], backgroundColor: TEAL, borderRadius: 3 },
+        { label: 'Small multi-listing (2-5)', data: [5559, 5778, 1563], backgroundColor: GOLD, borderRadius: 3 },
+        { label: 'Commercial (6+)', data: [8047, 6157, 1331], backgroundColor: CORAL, borderRadius: 3 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { boxWidth: 14, padding: 16 } } },
+      scales: {
+        x: { grid: { display: false } },
+        y: { grid: { color: '#EBEBEB' } }
+      }
+    }
+  });
+
+  // --- VIZ 3: Area Chart ---
+  const viz3Labels = ["2014-01","2014-04","2014-07","2014-10","2015-01","2015-04","2015-07","2015-10","2016-01","2016-04","2016-07","2016-10","2017-01","2017-04","2017-07","2017-10","2018-01","2018-04","2018-07","2018-10","2019-01","2019-04","2019-07","2019-10","2020-01","2020-03","2020-04","2020-07","2020-10","2021-01","2021-04","2021-07","2021-10","2022-01","2022-04","2022-07","2022-10","2023-01","2023-04","2023-07","2023-10","2024-01","2024-04","2024-07","2024-10","2025-01","2025-04","2025-07","2025-10"];
+  const viz3Values = [40,50,90,80,78,140,226,192,143,232,305,231,186,273,357,262,224,310,395,309,231,348,418,337,210,109,11,122,115,76,219,338,249,227,316,406,307,282,375,477,363,349,420,555,445,377,474,665,789];
+
+  // COVID annotation plugin
+  const covidAnnotation = {
+    id: 'covidLine',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      const xScale = chart.scales.x;
+      const yScale = chart.scales.y;
+      const covidIdx = viz3Labels.indexOf('2020-03');
+      const hsoIdx = viz3Labels.indexOf('2019-07');
+      if (covidIdx >= 0) {
+        const x = xScale.getPixelForValue(covidIdx);
+        ctx.save();
+        ctx.strokeStyle = CORAL_DARK;
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(x, yScale.top);
+        ctx.lineTo(x, yScale.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = CORAL_DARK;
+        ctx.font = 'bold 11px "Nunito Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('COVID-19', x, yScale.top - 6);
+        ctx.restore();
+      }
+      if (hsoIdx >= 0) {
+        const x = xScale.getPixelForValue(hsoIdx);
+        ctx.save();
+        ctx.strokeStyle = GRAY;
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(x, yScale.top);
+        ctx.lineTo(x, yScale.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = GRAY;
+        ctx.font = 'bold 10px "Nunito Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('HSO', x, yScale.top - 6);
+        ctx.restore();
+      }
+    }
+  };
+
+  new Chart(document.getElementById('chart3'), {
+    type: 'line',
+    data: {
+      labels: viz3Labels,
+      datasets: [{
+        label: 'New listings',
+        data: viz3Values,
+        fill: true,
+        backgroundColor: 'rgba(255, 56, 92, 0.12)',
+        borderColor: CORAL,
+        borderWidth: 2,
+        pointRadius: 2,
+        pointBackgroundColor: CORAL,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 20 } },
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: '#EBEBEB' }, ticks: { font: { size: 9 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 20 } },
+        y: { grid: { color: '#EBEBEB' } }
+      }
+    },
+    plugins: [covidAnnotation]
+  });
+
+  // --- VIZ 4: Horizontal Grouped Bar ---
+  const viz4Labels = ["Exposition Park","University Park","Adams-Normandie","Vermont Vista","Arlington Heights","Pico-Union","Rowland Heights","Palmdale","Manhattan Beach","Marina del Rey","Hwd Hills West","Beverly Crest","Topanga","Avalon","Playa Vista","Malibu"];
+  const viz4Entire = [12.1,25.0,26.5,29.3,37.0,40.8,41.1,43.9,90.8,90.9,90.9,91.3,92.1,92.7,92.8,93.6];
+  const viz4Private = [87.8,67.3,72.1,67.2,59.3,56.3,57.8,55.7,9.0,8.9,8.9,8.7,7.7,4.8,7.2,6.4];
+
+  new Chart(document.getElementById('chart4'), {
+    type: 'bar',
+    data: {
+      labels: viz4Labels,
+      datasets: [
+        { label: 'Entire home/apt %', data: viz4Entire, backgroundColor: CORAL, borderRadius: 3 },
+        { label: 'Private room %', data: viz4Private, backgroundColor: DARK, borderRadius: 3 }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { boxWidth: 14, padding: 16 } } },
+      scales: {
+        x: { max: 100, grid: { color: '#EBEBEB' }, ticks: { callback: function(v) { return v + '%'; } } },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+
+  // --- VIZ 5: Bubble Scatter ---
+  const scatterData = [
+    {ccd:"Los Angeles",listings:23613,entire_home_pct:72.4,multi_listing_pct:62.3,median_income:79637},
+    {ccd:"Santa Monica",listings:6065,entire_home_pct:83.6,multi_listing_pct:66.7,median_income:114885},
+    {ccd:"San Fernando Valley",listings:3866,entire_home_pct:77.6,multi_listing_pct:55.6,median_income:92046},
+    {ccd:"Pasadena",listings:2343,entire_home_pct:80.8,multi_listing_pct:61.8,median_income:120550},
+    {ccd:"Long Beach-Lakewood",listings:1988,entire_home_pct:78.4,multi_listing_pct:52.9,median_income:91722},
+    {ccd:"Torrance",listings:1284,entire_home_pct:66.0,multi_listing_pct:56.5,median_income:116217},
+    {ccd:"East San Gabriel",listings:1283,entire_home_pct:46.7,multi_listing_pct:79.1,median_income:96952},
+    {ccd:"SW San Gabriel",listings:1041,entire_home_pct:64.1,multi_listing_pct:80.5,median_income:83779},
+    {ccd:"Inglewood",listings:860,entire_home_pct:72.3,multi_listing_pct:57.6,median_income:75746},
+    {ccd:"N. Antelope Valley",listings:614,entire_home_pct:45.8,multi_listing_pct:65.3,median_income:80795},
+    {ccd:"Agoura Hills-Malibu",listings:573,entire_home_pct:88.8,multi_listing_pct:61.6,median_income:169991},
+    {ccd:"South Bay Cities",listings:445,entire_home_pct:90.8,multi_listing_pct:57.8,median_income:160911},
+    {ccd:"Upper San Gabriel",listings:406,entire_home_pct:67.7,multi_listing_pct:70.9,median_income:90913},
+    {ccd:"Newhall",listings:354,entire_home_pct:60.5,multi_listing_pct:50.3,median_income:126278},
+    {ccd:"Downey-Norwalk",listings:260,entire_home_pct:61.2,multi_listing_pct:60.4,median_income:92089},
+    {ccd:"Compton",listings:240,entire_home_pct:56.2,multi_listing_pct:42.9,median_income:86558},
+    {ccd:"Whittier",listings:194,entire_home_pct:69.1,multi_listing_pct:56.2,median_income:100226},
+    {ccd:"Palos Verdes",listings:156,entire_home_pct:69.2,multi_listing_pct:62.2,median_income:160539}
+  ];
+
+  function getColor(pct) {
+    if (pct > 80) return CORAL;
+    if (pct > 65) return GOLD;
+    return TEAL;
+  }
+
+  new Chart(document.getElementById('chart5'), {
+    type: 'bubble',
+    data: {
+      datasets: [{
+        label: 'CCD',
+        data: scatterData.map(function(d) {
+          return {
+            x: d.median_income,
+            y: d.listings,
+            r: Math.max(6, Math.sqrt(d.listings) / 2.8),
+            ccd: d.ccd,
+            entire_home_pct: d.entire_home_pct,
+            multi_listing_pct: d.multi_listing_pct
+          };
+        }),
+        backgroundColor: scatterData.map(function(d) {
+          var c = getColor(d.entire_home_pct);
+          // Add transparency
+          if (c === CORAL) return 'rgba(255, 56, 92, 0.7)';
+          if (c === GOLD) return 'rgba(242, 204, 143, 0.7)';
+          return 'rgba(0, 166, 153, 0.7)';
+        }),
+        borderColor: '#fff',
+        borderWidth: 1.5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              var d = ctx.raw;
+              return [
+                d.ccd,
+                'Listings: ' + d.y.toLocaleString(),
+                'Median Income: $' + d.x.toLocaleString(),
+                'Entire Home: ' + d.entire_home_pct + '%',
+                'Multi-listing Hosts: ' + d.multi_listing_pct + '%'
+              ];
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: '#EBEBEB' },
+          ticks: { callback: function(v) { return '$' + (v/1000).toFixed(0) + 'K'; } },
+          title: { display: true, text: 'Median Household Income (ACS)', font: { size: 12 } }
+        },
+        y: {
+          grid: { color: '#EBEBEB' },
+          title: { display: true, text: 'Total Airbnb Listings', font: { size: 12 } }
+        }
+      }
+    }
+  });
+  </script>
+</body>
+</html>
