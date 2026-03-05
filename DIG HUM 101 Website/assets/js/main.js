@@ -103,4 +103,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealEls.forEach(el => revealObserver.observe(el));
   }
+
+  /* ---- Timeline scroll progress bar ---- */
+  const progressFill = document.getElementById('tl-progress');
+  const tlWrapper = document.querySelector('.tl-wrapper');
+  if (progressFill && tlWrapper) {
+    const updateProgress = () => {
+      const rect = tlWrapper.getBoundingClientRect();
+      const start = rect.top + window.scrollY;
+      const end = start + rect.height - window.innerHeight;
+      const progress = Math.min(Math.max((window.scrollY - start) / (end - start), 0), 1);
+      progressFill.style.width = (progress * 100) + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
 });
