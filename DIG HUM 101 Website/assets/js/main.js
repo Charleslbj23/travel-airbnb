@@ -86,4 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateShadow, { passive: true });
     updateShadow();
   }
+
+  /* ---- Scroll-reveal for timeline elements ---- */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if (revealEls.length) {
+    document.body.classList.add('reveal-ready');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+  }
 });
