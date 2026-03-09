@@ -78,25 +78,46 @@
           <p>If applied alone, the ACS would present Los Angeles neighborhoods as stable demographic units. By layering <strong>Airbnb listing data</strong> onto this structure, our project focuses on how short-term rental markets connect with and reform long-term residential communities.</p>
         </div>
 
-        <div class="placeholder placeholder-table"><span>Dataset table goes here</span></div>
+        <div class="subsection">
+          <h3>Data Critique: InsideAirbnb</h3>
+          <p><strong>InsideAirbnb</strong> is a publicly accessible, activist-oriented data project created by Murray Cox and now maintained by the nonprofit <strong>Housing Justice Data Lab (HJDL)</strong>. The Los Angeles dataset is composed of five primary files: <strong>listings.csv.gz</strong> (listing ID, host ID, latitude/longitude, room type, price, availability, review counts, and host listing counts), <strong>calendar.csv.gz</strong> (daily availability and price data), <strong>reviews.csv.gz</strong> (review ID, date, and comment text), <strong>neighborhoods.csv</strong>, and <strong>neighborhoods.geojson</strong> (neighborhood names and boundary geometries).</p>
+          <p>Because InsideAirbnb focuses on listings and hosts, it frames Airbnb mainly as a supply-side housing transformation rather than a dataset of traveler behavior. This makes it easier to examine commodification and spatial clustering, but harder to measure lived displacement or the direct motivations of guests.</p>
+          <p><strong>What it allows us to measure:</strong> listing density and spatial focus, entire-home vs. private-room commodification, multi-listing (professionalized) hosts, and visible changes around 2020 via review timestamps and availability patterns. <strong>What it does not include:</strong> confirmed booking counts, actual revenue or payout data, guest demographics, or platform search ranking, enforcement records, or internal transaction data.</p>
+        </div>
       </section>
 
       <section class="section">
         <h2>Spatial Units &amp; Geography</h2>
         <div class="divider"></div>
-        <div class="placeholder"><span>Content goes here</span></div>
+        <p>Our primary spatial unit of analysis is the <strong>census tract</strong> — small, relatively stable geographic subdivisions used by the U.S. Census Bureau. By joining Airbnb listing coordinates (latitude/longitude) to census tracts, we can compare platform-visible rental activity to long-term neighborhood demographic and socioeconomic conditions at a granular level.</p>
+        <p>We also use <strong>InsideAirbnb's neighborhood boundaries</strong> (from neighborhoods.geojson) for neighborhood-level aggregation, and <strong>Census County Divisions (CCDs)</strong> for broader regional comparisons — particularly when analyzing income and listing count patterns across LA County.</p>
+
+        <div class="subsection">
+          <h3>ACS tables used</h3>
+          <ul>
+            <li><strong>DP05</strong> — Demographic and Housing Estimates (race, ethnicity, population)</li>
+            <li><strong>S0101</strong> — Age and Sex</li>
+            <li><strong>S1901</strong> — Household Income in the Past 12 Months</li>
+            <li><strong>S1501</strong> — Educational Attainment</li>
+            <li><strong>S2503</strong> — Financial Characteristics (housing cost burden, tenure)</li>
+          </ul>
+        </div>
       </section>
 
       <section class="section">
-        <h2>Methods / Spatial Approach</h2>
+        <h2>Methods &amp; Spatial Approach</h2>
         <div class="divider"></div>
-        <div class="placeholder"><span>Content goes here</span></div>
+        <p>We cleaned and structured the InsideAirbnb listings, standardized price variables, and identified multi-listing hosts using the <strong>calculated_host_listings_count</strong> field. Using geographic coordinates, we joined listings to census tracts and linked ACS demographic data. This spatial join allows us to calculate listings per capita, examine entire-home concentration, identify professional host clustering, and compare Airbnb density to neighborhood-level income and housing conditions.</p>
+        <p>We also analyzed review timestamps and daily calendar data to compare platform-visible patterns before and after 2020. While these methods do not represent confirmed bookings, they provide observable signals of platform-visible change over time.</p>
+        <p>Methodologically, we prevent <strong>ecological fallacy</strong> by not attributing tract-level demographics to individual hosts or guests. Instead, we analyze physical co-location patterns: where listings appear relative to neighborhood conditions — not who the hosts or guests are as individuals.</p>
       </section>
 
       <section class="section">
         <h2>Limitations &amp; Data Silences</h2>
         <div class="divider"></div>
-        <div class="placeholder"><span>Content goes here</span></div>
+        <p>Both datasets have meaningful gaps that shape what our analysis can and cannot claim. InsideAirbnb captures what is publicly visible on the platform at the time of scraping — it does not include actual booking data, host income, guest identity, or enforcement outcomes. This means we can observe where listings exist and what type they are, but we cannot directly observe who books them, how often, or what revenue hosts earn.</p>
+        <p>The ACS, as a sample-based survey, produces estimates with margins of error rather than exact counts. It describes long-term residential populations and cannot capture tourists, short-term renters, or the rapid turnover of short-term rental markets. Categories like "housing cost burden" are statistical constructs — they point to structural patterns but cannot capture the lived experience of precarity, displacement, or eviction.</p>
+        <p>We treat these data silences as part of the argument rather than as failures. The absence of booking records, displacement data, and guest demographics is not simply a technical limitation — it reflects the boundaries of what platforms choose to make visible, and what standard government surveys are designed to measure. Acknowledging these gaps is essential to interpreting our findings honestly.</p>
       </section>
 
       <div class="up-next">
