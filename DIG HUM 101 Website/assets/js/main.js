@@ -3,6 +3,13 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  /* ---- Ambient background — single drifting coral spotlight ---- */
+  const ambient = document.createElement('div');
+  ambient.className = 'ambient-layer';
+  ambient.setAttribute('aria-hidden', 'true');
+  ambient.innerHTML = '<div class="ambient-spotlight"></div>';
+  document.body.prepend(ambient);
+
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   const dropdowns = document.querySelectorAll('.nav-dropdown');
