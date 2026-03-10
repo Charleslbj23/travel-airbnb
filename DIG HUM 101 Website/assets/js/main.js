@@ -87,6 +87,41 @@ document.addEventListener('DOMContentLoaded', () => {
     updateShadow();
   }
 
+  /* ---- Hero & page-header entrance animations ---- */
+  const hero = document.querySelector('.hero');
+  const pageHeader = document.querySelector('.page-header');
+  const pageHeaderClean = document.querySelector('.page-header-clean');
+
+  if (hero) {
+    requestAnimationFrame(() => {
+      hero.classList.add('is-loaded');
+      const heroBg = hero.querySelector('.hero-bg');
+      if (heroBg) heroBg.classList.add('is-loaded');
+    });
+  }
+  if (pageHeader) {
+    requestAnimationFrame(() => {
+      pageHeader.classList.add('is-loaded');
+      const heroBg = pageHeader.querySelector('.hero-bg');
+      if (heroBg) heroBg.classList.add('is-loaded');
+    });
+  }
+  if (pageHeaderClean) {
+    requestAnimationFrame(() => pageHeaderClean.classList.add('is-loaded'));
+  }
+
+  /* ---- Subtle parallax on hero/page-header backgrounds ---- */
+  const parallaxBg = document.querySelector('.hero .hero-bg img, .page-header .hero-bg img');
+  if (parallaxBg) {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < 800) {
+        parallaxBg.style.transform = `scale(1.06) translateY(${y * 0.15}px)`;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   /* ---- Scroll-reveal for timeline elements ---- */
   const revealEls = document.querySelectorAll('[data-reveal]');
   if (revealEls.length) {
@@ -102,6 +137,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
     revealEls.forEach(el => revealObserver.observe(el));
+  }
+
+  /* ---- CountUp animation for stat numbers ---- */
+  const statNums = document.querySelectorAll('.stat-number');
+  if (statNums.length) {
+    const countUp = (el) => {
+      const text = el.textContent.trim();
+      const hasPercent = text.includes('%');
+      const hasComma = text.includes(',');
+      const raw = parseFloat(text.replace(/[,%]/g, ''));
+      if (isNaN(raw)) return;
+      const isDecimal = text.includes('.') && !hasComma;
+      const decimals = isDecimal ? (text.split('.')[1] || '').replace('%', '').length : 0;
+      const duration = 1200;
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        let val = (raw * ease).toFixed(decimals);
+        if (hasComma) val = Number(val).toLocaleString('en-US');
+        el.textContent = val + (hasPercent ? '%' : '');
+        if (t < 1) requestAnimationFrame(step);
+      };
+      el.textContent = '0' + (hasPercent ? '%' : '');
+      requestAnimationFrame(step);
+    };
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          countUp(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => statObserver.observe(el));
   }
 
   /* ---- Timeline scroll progress bar ---- */

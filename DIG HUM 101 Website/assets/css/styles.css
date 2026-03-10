@@ -369,6 +369,11 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 12s ease-out;
+}
+
+.hero-bg.is-loaded img {
+  transform: scale(1.06);
 }
 
 .hero-overlay {
@@ -497,7 +502,7 @@ p {
 .page-header-clean {
   text-align: center;
   padding: 72px 32px 56px;
-  background: var(--bg);
+  background: linear-gradient(180deg, var(--bg-hero) 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -526,6 +531,22 @@ p {
   margin: 0 auto;
   line-height: 1.6;
   font-weight: 400;
+}
+
+/* ===== Narrative Page Header (Airbnb coral banner) ===== */
+.page-header-narrative {
+  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+  border-bottom: none;
+}
+
+.page-header-narrative .eyebrow {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.page-header-narrative h1 {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* ===== Section Icon (inline SVG beside heading) ===== */
@@ -1395,6 +1416,196 @@ p {
 }
 .reveal-ready [data-reveal].is-visible .tl-card:nth-child(3) {
   animation: revealScale 0.6s var(--ease) 0.35s both;
+}
+
+/* ---- Staggered reveal delays ---- */
+[data-reveal-delay="1"].is-visible { animation-delay: 0.1s; }
+[data-reveal-delay="2"].is-visible { animation-delay: 0.2s; }
+[data-reveal-delay="3"].is-visible { animation-delay: 0.3s; }
+
+/* ---- Animated divider — grows width on reveal ---- */
+.reveal-ready [data-reveal] .divider { width: 0; transition: width 0.6s var(--ease) 0.3s; }
+.reveal-ready [data-reveal].is-visible .divider { width: 48px; }
+
+/* ---- Stat card stagger animation ---- */
+.reveal-ready .stat-card { opacity: 0; transform: translateY(24px); }
+.reveal-ready .stat-row.is-visible .stat-card { animation: revealScale 0.5s var(--ease) both; }
+.reveal-ready .stat-row.is-visible .stat-card:nth-child(1) { animation-delay: 0.1s; }
+.reveal-ready .stat-row.is-visible .stat-card:nth-child(2) { animation-delay: 0.25s; }
+.reveal-ready .stat-row.is-visible .stat-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* ---- Hero entrance animations ---- */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero.is-loaded .eyebrow   { animation: heroFadeUp 0.8s var(--ease) 0.15s both; }
+.hero.is-loaded h1         { animation: heroFadeUp 0.8s var(--ease) 0.35s both; }
+.hero.is-loaded .subtitle  { animation: heroFadeUp 0.8s var(--ease) 0.55s both; }
+.hero.is-loaded .hero-buttons { animation: heroFadeUp 0.8s var(--ease) 0.7s both; }
+
+/* Page header entrance — only hide when JS is ready */
+.page-header.is-loaded .page-header-content { animation: heroFadeUp 0.8s var(--ease) 0.2s both; }
+.page-header-clean.is-loaded .eyebrow  { animation: heroFadeUp 0.6s var(--ease) 0.1s both; }
+.page-header-clean.is-loaded h1        { animation: heroFadeUp 0.6s var(--ease) 0.25s both; }
+.page-header-clean.is-loaded .subtitle { animation: heroFadeUp 0.6s var(--ease) 0.4s both; }
+
+/* ---- Card grid stagger on reveal ---- */
+.reveal-ready .card-grid[data-reveal] .card {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.reveal-ready .card-grid[data-reveal].is-visible .card { animation: revealScale 0.5s var(--ease) both; }
+.reveal-ready .card-grid[data-reveal].is-visible .card:nth-child(1) { animation-delay: 0.1s; }
+.reveal-ready .card-grid[data-reveal].is-visible .card:nth-child(2) { animation-delay: 0.2s; }
+.reveal-ready .card-grid[data-reveal].is-visible .card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ---- Team card stagger on reveal ---- */
+.reveal-ready .team-grid[data-reveal] .team-card {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.reveal-ready .team-grid[data-reveal].is-visible .team-card { animation: revealScale 0.5s var(--ease) both; }
+.reveal-ready .team-grid[data-reveal].is-visible .team-card:nth-child(1) { animation-delay: 0.05s; }
+.reveal-ready .team-grid[data-reveal].is-visible .team-card:nth-child(2) { animation-delay: 0.15s; }
+.reveal-ready .team-grid[data-reveal].is-visible .team-card:nth-child(3) { animation-delay: 0.25s; }
+.reveal-ready .team-grid[data-reveal].is-visible .team-card:nth-child(4) { animation-delay: 0.35s; }
+
+/* ---- Bib entry stagger on reveal ---- */
+.reveal-ready .bib-entry[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.reveal-ready .bib-entry[data-reveal].is-visible {
+  animation: revealUp 0.5s var(--ease) both;
+}
+
+/* ---- Feature row slide-in ---- */
+@keyframes slideFromLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFromRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.reveal-ready .feature-row[data-reveal] .feature-image {
+  opacity: 0;
+}
+.reveal-ready .feature-row[data-reveal] .feature-text {
+  opacity: 0;
+}
+.reveal-ready .feature-row[data-reveal].is-visible .feature-image {
+  animation: slideFromLeft 0.7s var(--ease) 0.1s both;
+}
+.reveal-ready .feature-row[data-reveal].is-visible .feature-text {
+  animation: slideFromRight 0.7s var(--ease) 0.2s both;
+}
+.reveal-ready .feature-row.reverse[data-reveal].is-visible .feature-image {
+  animation: slideFromRight 0.7s var(--ease) 0.1s both;
+}
+.reveal-ready .feature-row.reverse[data-reveal].is-visible .feature-text {
+  animation: slideFromLeft 0.7s var(--ease) 0.2s both;
+}
+
+/* ---- Stat card hover lift ---- */
+.stat-card {
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ---- Chart container hover lift ---- */
+.chart-container {
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.chart-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---- Feature image hover zoom ---- */
+.feature-image img {
+  transition: transform 0.6s var(--ease);
+}
+.feature-image:hover img {
+  transform: scale(1.04);
+}
+
+/* ---- Up-next button arrow bounce ---- */
+@keyframes arrowBounce {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
+.up-next .btn-primary:hover {
+  animation: arrowBounce 0.8s var(--ease) infinite;
+}
+
+/* ---- Bib entry left-border glow on hover ---- */
+.bib-entry {
+  transition: box-shadow 0.25s var(--ease), border-left-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.bib-entry:hover {
+  transform: translateX(4px);
+  border-left-color: var(--coral-dark);
+}
+
+/* ---- Section icon pulse on reveal ---- */
+@keyframes iconPop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.12); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.reveal-ready [data-reveal] .section-icon {
+  opacity: 0;
+}
+.reveal-ready [data-reveal].is-visible .section-icon {
+  animation: iconPop 0.5s var(--ease) 0.15s both;
+}
+
+/* ---- Card icon hover rotation ---- */
+.card-icon {
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+.card:hover .card-icon {
+  transform: rotate(-8deg) scale(1.08);
+  background: var(--coral-glow);
+}
+
+/* ---- Team avatar hover ring ---- */
+.team-card .avatar {
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.team-card:hover .avatar {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 4px var(--coral-light);
+}
+
+/* ---- Ghost button arrow slide ---- */
+.btn-ghost::after {
+  content: '\2192';
+  display: inline-block;
+  margin-left: 2px;
+  transition: transform 0.25s var(--ease);
+}
+.btn-ghost:hover::after {
+  transform: translateX(4px);
+}
+
+/* ---- Smooth page transition ---- */
+main {
+  animation: heroFadeIn 0.4s var(--ease) both;
 }
 
 /* ---- Scroll progress bar ---- */
