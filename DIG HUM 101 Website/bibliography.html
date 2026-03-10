@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -33,6 +34,7 @@
         <li class="nav-dropdown">
           <button aria-haspopup="true" aria-expanded="false">Narrative <span class="dropdown-arrow">&#9660;</span></button>
           <div class="dropdown-menu">
+            <a href="narrative.html">Overview</a>
             <a href="page5.html">Listing Concentration</a>
             <a href="page8.html">Housing Commodification</a>
             <a href="page9.html">Commercial Hosting</a>
@@ -43,8 +45,8 @@
         <li class="nav-dropdown">
           <button class="active" aria-haspopup="true" aria-expanded="false">About <span class="dropdown-arrow">&#9660;</span></button>
           <div class="dropdown-menu">
-            <a href="page6.html">About</a>
-            <a href="page6.html#team">The Team</a>
+            <a href="about.html">About</a>
+            <a href="about.html#team">The Team</a>
             <a href="bibliography.html" class="active">Bibliography</a>
           </div>
         </li>
@@ -52,79 +54,13 @@
     </div>
   </nav>
 
-  <header class="page-header">
-    <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1600&q=80" alt="Library bookshelves">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="page-header-content">
-      <span class="eyebrow">References</span>
-      <h1>Annotated Bibliography</h1>
-      <p class="subtitle">Sources informing our research on Airbnb and Los Angeles.</p>
-    </div>
-  </header>
-
   <main id="main">
-    <div class="container">
-
-      <section class="section" data-reveal>
-        <h2>Annotated Bibliography</h2>
-        <div class="divider"></div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Cox, Murray. &ldquo;About Inside Airbnb.&rdquo; <em>Inside Airbnb</em>. <a href="https://insideairbnb.com/about/" target="_blank" rel="noopener">https://insideairbnb.com/about/</a>.</p>
-          <p>InsideAirbnb is the primary dataset used in this project. Created by community artist and data activist Murray Cox and now maintained by the Housing Justice Data Lab, it scrapes publicly visible Airbnb listing data and publishes it for research and advocacy. This source is directly relevant to our methods and data critique: because InsideAirbnb is an advocacy project rather than a neutral archive, its framing — that Airbnb displaces residential housing — shapes what data it collects and how it is organized. We use this source to understand not just the data itself but the ontological and political choices embedded in its production.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Wachsmuth, David, and Alexander Weisler. &ldquo;Amenities, Gentrification, and the Short-Term Rental Market in Los Angeles.&rdquo; <em>Urban Studies</em>, vol. 55, no. 14, 2018, pp. 3225&ndash;3243. doi:10.1177/0042098018779757.</p>
-          <p>This peer-reviewed article examines how Airbnb listings cluster in already-gentrifying Los Angeles neighborhoods, finding that short-term rental platforms tend to concentrate in areas with high amenity value and rising rents. It supports our first argument about spatial concentration by providing scholarly evidence that Airbnb is not randomly distributed across the city but follows existing patterns of neighborhood desirability and investment. The article also connects platform activity to broader processes of urban transformation, which frames our interpretation of the "for whom?" question.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Koster, Hans R. A., et al. &ldquo;Short-Term Rentals and the Housing Market: Quasi-Experimental Evidence from Airbnb in Los Angeles.&rdquo; <em>Journal of Urban Economics</em>, vol. 124, July 2021, Article 103356, pp. 1&ndash;33. doi:10.1016/j.jue.2021.103356.</p>
-          <p>Using a quasi-experimental design, this study estimates the causal effect of Airbnb entry on local housing markets in Los Angeles, finding upward pressure on rents in neighborhoods with high listing density. This source directly supports our second argument about housing commodification by providing quantitative evidence that the conversion of homes to short-term rentals has measurable effects on housing costs for long-term residents. It also models the relationship between Airbnb supply and local housing conditions that we examine qualitatively through our ACS data comparisons.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Lee, Dayne. &ldquo;How Airbnb Short-Term Rentals Exacerbate Los Angeles&rsquo;s Affordable Housing Crisis: Analysis and Policy Recommendations.&rdquo; <em>Harvard Law &amp; Policy Review</em>, vol. 10, 2016, pp. 229&ndash;253. <a href="https://harvardlpr.com/wp-content/uploads/sites/20/2016/02/10.1_7_Lee.pdf" target="_blank" rel="noopener">https://harvardlpr.com/wp-content/uploads/sites/20/2016/02/10.1_7_Lee.pdf</a>.</p>
-          <p>This policy analysis argues that Airbnb's growth in Los Angeles has directly worsened the city's affordable housing crisis by removing long-term rental units from the market and contributing to rent increases. It informs our second and third arguments by framing entire-home Airbnb listings as a structural housing supply problem rather than a consumer convenience. The article also provides an early policy framework for regulating short-term rentals, contextualizing the Home-Sharing Ordinance that our timeline documents and that appears in our data as the license field.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Zhang, Zhihua, and Rachel J. C. Fu. &ldquo;The Spatial Distribution of Airbnb Supply in Los Angeles.&rdquo; <em>Tourism Analysis</em>, vol. 27, no. 4, 2022, pp. 467&ndash;477. doi:10.3727/108354222X16571659728565.</p>
-          <p>This study maps the spatial distribution of Airbnb supply across Los Angeles using GIS methods, finding strong clustering in coastal and tourist-adjacent neighborhoods. It directly supports our first argument and provides a methodological precedent for the spatial co-location analysis we conduct by joining InsideAirbnb listings to census tracts. The study also identifies how Airbnb supply patterns correlate with neighborhood characteristics, which informs our use of ACS data to contextualize listing density.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Alsudais, Abdulkareem. &ldquo;Incorrect Data in the Widely Used Inside Airbnb Dataset.&rdquo; <em>Decision Support Systems</em>, vol. 141, 2021, Article 113453. doi:10.1016/j.dss.2020.113453.</p>
-          <p>This article critically examines the accuracy and reliability of InsideAirbnb data, identifying systematic errors and inconsistencies in how listing information is scraped and reported. It is directly relevant to our data critique and limitations sections: by acknowledging that InsideAirbnb data contains known inaccuracies, we situate our analysis within a responsible and transparent framework. This source reinforces our methodological decision to treat data gaps and missing fields — like the license field used to track Home-Sharing Ordinance compliance — as meaningful signals rather than simply noise.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Los Angeles Housing Department. &ldquo;RSO Overview.&rdquo; <a href="https://housing.lacity.gov/residents/rso-overview" target="_blank" rel="noopener">https://housing.lacity.gov/residents/rso-overview</a>.</p>
-          <p>The Rent Stabilization Ordinance (RSO), enacted in 1978, caps rent increases for approximately 624,000 units built on or before October 1978. This source is essential background for our timeline and for interpreting our listing data: because the Home-Sharing Ordinance bans RSO units from short-term rental use entirely, the RSO's geographic footprint helps explain why Airbnb listing density is higher in some census tracts than others. It also contextualizes the rent freeze during COVID-19, which appears as unusually stable housing cost burden patterns in our ACS data.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">Los Angeles Municipal Code &sect; 12.22 A.32. &ldquo;Home-Sharing Ordinance.&rdquo; Adopted 11 Dec. 2018, effective 1 July 2019. <a href="https://planning.lacity.gov/plans-policies/home-sharing" target="_blank" rel="noopener">https://planning.lacity.gov/plans-policies/home-sharing</a>.</p>
-          <p>The Home-Sharing Ordinance requires LA hosts to register with the city, limits short-term rentals to primary residences, caps rentals at 120 days per year, and bans all RSO units from the platform. The ordinance is the most significant regulatory intervention visible in our data: the license field in InsideAirbnb listings, which is frequently blank or missing, reflects uneven compliance with this requirement. The ordinance's enforcement gap — documented in other sources — appears in our data as a proxy for where regulation is actually working and where it is not.</p>
-        </div>
-
-        <div class="bib-entry" data-reveal>
-          <p class="citation">U.S. Census Bureau. &ldquo;American Community Survey 5-Year Estimates.&rdquo; <a href="https://data.census.gov" target="_blank" rel="noopener">https://data.census.gov</a>.</p>
-          <p>The American Community Survey is our second primary dataset, providing census-tract-level demographic and socioeconomic information for Los Angeles County. We use five tables: DP05 (demographics), S0101 (age and sex), S1901 (household income), S1501 (educational attainment), and S2503 (housing cost burden). As a sample-based survey, ACS data contains margins of error and represents estimates rather than exact counts. We use the ACS to contextualize where Airbnb listings appear rather than to make causal claims about individual hosts or guests — an approach that reflects a deliberate effort to avoid ecological fallacy in our spatial analysis.</p>
-        </div>
-
-      </section>
-
-      <div class="up-next" data-reveal>
-        <p class="label">Up Next</p>
-        <h3>Back to Home</h3>
-        <a href="index.html" class="btn btn-primary">Go Home &rarr;</a>
+    <section class="bib-cta-section">
+      <div class="container" style="text-align: center;">
+        <h2 style="color: var(--dark); margin-bottom: 24px;">Annotated Bibliography</h2>
+        <a href="https://drive.google.com/file/d/1Z5l8ki5O34sH3j8UAUIhugllZqB-hmbx/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-primary">View PDF</a>
       </div>
-
-    </div>
+    </section>
   </main>
 
   <footer class="footer">

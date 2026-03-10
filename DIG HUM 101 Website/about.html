@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &mdash; Airbnb &amp; LA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        Airbnb &amp; LA
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <button aria-haspopup="true" aria-expanded="false">Background <span class="dropdown-arrow">&#9660;</span></button>
+          <div class="dropdown-menu">
+            <a href="page1.html">History</a>
+            <a href="page2.html">The Data</a>
+            <a href="timeline.html">Timeline</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <button aria-haspopup="true" aria-expanded="false">Narrative <span class="dropdown-arrow">&#9660;</span></button>
+          <div class="dropdown-menu">
+            <a href="narrative.html">Overview</a>
+            <a href="page5.html">Listing Concentration</a>
+            <a href="page8.html">Housing Commodification</a>
+            <a href="page9.html">Commercial Hosting</a>
+            <a href="page10.html">Conclusions</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <button class="active" aria-haspopup="true" aria-expanded="false">About <span class="dropdown-arrow">&#9660;</span></button>
+          <div class="dropdown-menu">
+            <a href="about.html" class="active">About</a>
+            <a href="about.html#team">The Team</a>
+            <a href="bibliography.html">Bibliography</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero hero-video">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline class="hero-video-bg">
+        <source src="assets/videos/LA-About.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="eyebrow">About</span>
+      <h1>About Our Project</h1>
+      <p class="subtitle">Our project, our process, and the team behind the research.</p>
+      <div class="hero-buttons">
+        <a href="#main" class="btn btn-outline">Explore &#8595;</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <section class="section" data-reveal>
+        <h2>What went into our project?</h2>
+        <div class="divider"></div>
+
+        <div class="subsection">
+          <h3>Selecting Our Sources</h3>
+          <p>InsideAirbnb provides a high-resolution view of platform-generated housing supply, while the ACS offers a structural view of neighborhood demographics and socioeconomic conditions.</p>
+          <p>By spatially joining listings (latitude/longitude) to census tracts, we do not claim that area demographics describe individual hosts or guests. Instead, we analyze co-location patterns:</p>
+          <ul>
+            <li>Where do entire-home listings cluster relative to income levels?</li>
+            <li>Where do multi-listing hosts appear in relation to rent-burdened areas?</li>
+            <li>Which demographic contexts overlap with high Airbnb density?</li>
+          </ul>
+          <p>If we relied only on InsideAirbnb, Los Angeles would act as a marketplace of listings. If we relied only on the ACS, Los Angeles would act as static demographic zones. By combining them, we analyze how a digital platform economy overlaps and interacts with long-term community structures, helping answer our central research question: How does Airbnb spatially shape and commodify communities in Los Angeles &mdash; and for whom?</p>
+        </div>
+
+        <div class="subsection">
+          <h3>Processing Our Data</h3>
+          <p>We cleaned and structured the InsideAirbnb listings, standardized price variables, and identified multi-listing hosts. Using geographic coordinates, we corresponded listings to census tracts and joined ACS demographic data. This spatial join allows us to calculate listings per capita, examine entire-home concentration, identify professional host clustering, and compare Airbnb density to neighborhood-level income and housing conditions.</p>
+          <p>We also observed review timestamps and daily calendar data to compare visible patterns before and after 2020. While these methods do not signify confirmed bookings, they provide a suggestion of platform-visible change over time.</p>
+          <p>Methodologically, we prevent ecological misconceptions by not attaching tract-level demographics to individual hosts or guests. Instead, we analyze physical co-location patterns. We also treat data gaps&mdash;like missing booking records and displacement data&mdash;as significant limits that form interpretation.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>Presenting Our Narrative</h3>
+          <p>We designed our site in Figma first so we could lock in the layout, spacing, and visual style before writing any code. Then we built the actual website in JavaScript, using VS Code as our IDE to develop and organize the project efficiently.</p>
+          <p>To publish the site, we deployed it on Vercel, which made hosting straightforward and let us push updates quickly without manually managing servers or file uploads. This workflow&mdash;Figma for planning, JavaScript for implementation, VS Code for development, and Vercel for deployment&mdash;helped us stay consistent between the design and final product while keeping iteration fast as we refined the site.</p>
+        </div>
+      </section>
+
+      <section class="section" id="team" data-reveal>
+        <h2>Meet the Team</h2>
+        <div class="divider"></div>
+        <div class="team-grid" data-reveal>
+          <div class="team-card">
+            <div class="avatar" aria-label="Blair Warren's profile photo"><img src="assets/images/Blair-Warren.png" alt="Blair Warren"></div>
+            <h4>Blair Warren</h4>
+            <p class="role">Project Manager</p>
+            <p class="bio">Blair Warren is a 4th year Statistics &amp; Data Science student from Chicago. As the group&rsquo;s data specialist, Blair led the extraction and cleaning of both the InsideAirbnb and ACS datasets, preparing them for analysis and ensuring they were structured and usable for the team&rsquo;s research. She also contributed to several of the project&rsquo;s data visualizations, translating raw data into the charts and figures used throughout the narrative. In addition to her data work, Blair helped build and refine portions of the website, contributing to the overall presentation of the project.</p>
+          </div>
+          <div class="team-card">
+            <div class="avatar" aria-label="Charles's profile photo"><img src="assets/images/Charles-Zhu.png" alt="Charles"></div>
+            <h4>Charles Zhu</h4>
+            <p class="role">Web Developer</p>
+            <p class="bio">Charles is a 4th year Computer Science student at UCLA interested in software engineering. As the group's website developer, he designed the site in Figma and built the project's structure, navigation, and page layouts to translate the team's research into a clear, interactive narrative. He integrated the team's visuals and maps into a cohesive, responsive, and accessible interface, developed the site in JavaScript using VS Code, and deployed it on Vercel.</p>
+          </div>
+          <div class="team-card">
+            <div class="avatar" aria-label="Alexia Baca's profile photo"><img src="assets/images/Alexia-Baca.png" alt="Alexia Baca"></div>
+            <h4>Alexia Baca</h4>
+            <p class="role">Data Specialist</p>
+            <p class="bio">Alexia is a Global Studies student interested in international business, entrepreneurship, logistics, and cross-border systems. She brings an interdisciplinary perspective blending social science analysis with data interpretation, digital storytelling, and research design. She wrote the data critique for the ACS dataset and contributed to the sources and processing sections.</p>
+          </div>
+          <div class="team-card">
+            <div class="avatar" aria-label="Erica Tovar's profile photo"><img src="assets/images/Erica-Tovar.png" alt="Erica Tovar"></div>
+            <h4>Erica Tovar</h4>
+            <p class="role">Research Lead</p>
+            <p class="bio">Erica is a Digital Humanities student interested in platform economies, housing policy, and city disparity. She focused on demographic contextualization, methodological framing, and theoretical incorporation. Her research frames Airbnb as a spatially rooted platform economy, drawing on scholarship in urban planning, digital trust systems, and platform disruption theory.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-reveal>
+        <h2>Acknowledgements</h2>
+        <div class="divider"></div>
+        <div class="ack-grid" data-reveal style="margin-top: 36px;">
+          <div class="ack-card">
+            <div class="ack-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            </div>
+            <h3 class="ack-name">Dr. Nicholas Sabo</h3>
+            <p class="ack-message">For teaching us the foundations of digital humanities that made this project possible. His lectures and guidance gave us the tools and critical frameworks we needed to approach our research with confidence. Thank you so much for believing in this project!</p>
+          </div>
+          <div class="ack-card">
+            <div class="ack-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3 class="ack-name">Pietro Santachiara</h3>
+            <p class="ack-message">For his steady mentorship and weekly guidance throughout the entire project. His consistent feedback helped us stay on track, refine our approach, and strengthen our work at every stage. Thank you so much for always being there to support and push us forward!</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="up-next" data-reveal>
+        <p class="label">Up Next</p>
+        <h3>Bibliography</h3>
+        <a href="bibliography.html" class="btn btn-primary">Continue &rarr;</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Airbnb &amp; LA &mdash; A DH 101 Project</p>
+      <p>&copy; 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
