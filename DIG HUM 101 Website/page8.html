@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Argument 2 &mdash; Airbnb &amp; Los Angeles</title>
+  <title>Housing Commodification &mdash; Airbnb &amp; Los Angeles</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -33,11 +34,11 @@
         <li class="nav-dropdown">
           <button class="active" aria-haspopup="true" aria-expanded="false">Narrative <span class="dropdown-arrow">&#9660;</span></button>
           <div class="dropdown-menu">
-            <a href="page5.html">Argument 1</a>
-            <a href="page8.html" class="active">Argument 2</a>
-            <a href="page9.html">Argument 3</a>
+            <a href="page5.html">Listing Concentration</a>
+            <a href="page8.html" class="active">Housing Commodification</a>
+            <a href="page9.html">Commercial Hosting</a>
             <a href="page10.html">Conclusions</a>
-            <a href="dataviz.html">Data Viz</a>
+
           </div>
         </li>
         <li class="nav-dropdown">
@@ -54,8 +55,8 @@
 
   <header class="page-header-clean">
     <span class="eyebrow">Narrative</span>
-    <h1>Argument 2: Housing Commodification</h1>
-    <p class="subtitle">The dominance of entire-home listings shows how residential housing units are increasingly converted into short-term accommodations for visitors, transforming homes into revenue-generating assets.</p>
+    <h1>Housing Commodification</h1>
+
   </header>
 
   <main id="main">
@@ -65,29 +66,18 @@
         <h2>Airbnb and the commodification of housing</h2>
         <div class="divider"></div>
         <p>One of the most significant patterns in Airbnb listings across Los Angeles is the dominance of entire-home rentals, which make up the largest share of listings on the platform. Approximately 33,580 listings are categorized as entire homes, far exceeding private-room or shared-room listings. This distinction is important because an entire-home listing represents a complete housing unit that could otherwise be occupied by a long-term resident. Unlike room rentals, where hosts may rent out a spare bedroom while continuing to live in the property, entire-home listings convert full residential properties into short-term accommodation for visitors.</p>
-        <p>Entire-home rentals account for the largest share of Airbnb listings across every part of Los Angeles. In the City of Los Angeles, approximately 74.8% of listings are entire homes, compared to 72.7% in other cities and 71.9% in unincorporated areas. This pattern suggests that Airbnb is used primarily for renting complete housing units rather than spare rooms.</p>
-
-        <div class="subsection">
-          <h3>Entire-home dominance by area</h3>
-          <p>The breakdown of listings by host type across the City of LA, other cities, and unincorporated areas shows that entire-home listings dominate in every area. This indicates that the conversion of whole residential properties — not room-sharing — is the primary function of the platform across LA County. See <a href="dataviz.html">Viz 2 on the Data Viz page</a> for the full breakdown.</p>
+        <div style="background: var(--card, #fff); border-radius: 8px; padding: 24px 16px 16px; border: 1px solid #EBEBEB; margin: 20px 0 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+          <p style="font-size: 0.8rem; font-weight: 600; text-align: center; color: #222; margin-bottom: 12px;">Figure 2 &mdash; Two Geographies of Commodification: Entire Home % vs. Private Room %</p>
+          <div style="position: relative; height: 480px;"><canvas id="chartViz4"></canvas></div>
+          <p style="font-size: 0.7rem; color: #767676; text-align: center; margin-top: 8px;">Source: InsideAirbnb Los Angeles, December 2025</p>
         </div>
-
-        <div class="subsection">
-          <h3>Income context and housing as investment</h3>
-          <p>Socioeconomic context from Census data helps illustrate where housing commodification is most visible. Areas with higher household incomes often coincide with places where Airbnb activity is particularly prominent. The Agoura Hills–Malibu area reports a median household income of approximately $169,991, substantially higher than many other communities in Los Angeles County. In these contexts, housing can more easily function as an investment asset capable of generating short-term rental revenue.</p>
-          <p>High-income areas like Agoura Hills–Malibu ($170K median) and South Bay Cities ($161K) have fewer total listings but the highest entire-home rates (89–91%). The largest CCD, Los Angeles, dominates in volume (23,613 listings) at $80K median income. Together, these patterns suggest that Airbnb's most intensive commodification occurs in wealthier communities. See <a href="dataviz.html">Viz 5 on the Data Viz page</a> for the full income vs. listing scatter plot.</p>
-        </div>
-
-        <div class="subsection">
-          <h3>Two Airbnb economies within one city</h3>
-          <p>The contrast between neighborhoods reveals two distinct models of platform use. In wealthy coastal neighborhoods — Malibu (93.6%), Manhattan Beach (90.8%) — over 90% of listings are entire homes, reflecting a market where full properties are listed as investment assets. In lower-income neighborhoods — Exposition Park (12.1%), University Park (25.0%) — private room-sharing dominates, reflecting a very different economic relationship to the platform.</p>
-          <p>This divergence shows that Airbnb does not operate as a single uniform market across Los Angeles. Instead, it produces geographically distinct patterns of commodification that align closely with existing neighborhood income levels and housing conditions. See <a href="dataviz.html">Viz 4 on the Data Viz page</a> for the full comparison of neighborhoods at each extreme.</p>
-        </div>
+        <p>As shown in Figure 2, entire-home rentals account for the largest share of Airbnb listings across different parts of Los Angeles. In the City of Los Angeles, approximately 74.8% of listings are entire homes, compared to 72.7% in other cities and 71.9% in unincorporated areas. This pattern suggests that Airbnb is used primarily for renting complete housing units.</p>
+        <p>Socioeconomic context from Census data helps illustrate where this process is most visible. Areas with higher household incomes and educational attainment often coincide with places where Airbnb activity is particularly prominent. For example, the Agoura Hills&ndash;Malibu area reports a median household income of approximately $169,991, substantially higher than many other communities in Los Angeles County. In these contexts, housing can more easily function as an investment asset capable of generating short-term rental revenue. Together, these patterns suggest that Airbnb contributes to the commodification of housing by enabling entire residential properties to function as short-term rental assets.</p>
       </section>
 
       <div class="up-next">
         <p class="label">Up Next</p>
-        <h3>Argument 3</h3>
+        <h3>Commercial Hosting</h3>
         <a href="page9.html" class="btn btn-primary">Continue &rarr;</a>
       </div>
 
@@ -102,5 +92,38 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+  const CORAL = '#FF385C';
+  const DARK = '#222222';
+
+  Chart.defaults.font.family = "'Nunito Sans', -apple-system, 'Segoe UI', sans-serif";
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = '#484848';
+
+  const viz4Labels = ["Exposition Park","University Park","Adams-Normandie","Vermont Vista","Arlington Heights","Pico-Union","Rowland Heights","Palmdale","Manhattan Beach","Marina del Rey","Hwd Hills West","Beverly Crest","Topanga","Avalon","Playa Vista","Malibu"];
+  const viz4Entire = [12.1,25.0,26.5,29.3,37.0,40.8,41.1,43.9,90.8,90.9,90.9,91.3,92.1,92.7,92.8,93.6];
+  const viz4Private = [87.8,67.3,72.1,67.2,59.3,56.3,57.8,55.7,9.0,8.9,8.9,8.7,7.7,4.8,7.2,6.4];
+
+  new Chart(document.getElementById('chartViz4'), {
+    type: 'bar',
+    data: {
+      labels: viz4Labels,
+      datasets: [
+        { label: 'Entire home/apt %', data: viz4Entire, backgroundColor: CORAL, borderRadius: 3 },
+        { label: 'Private room %', data: viz4Private, backgroundColor: DARK, borderRadius: 3 }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { boxWidth: 14, padding: 16 } } },
+      scales: {
+        x: { max: 100, grid: { color: '#EBEBEB' }, ticks: { callback: function(v) { return v + '%'; } } },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+  </script>
 </body>
 </html>

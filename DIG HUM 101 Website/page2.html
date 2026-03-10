@@ -33,11 +33,11 @@
         <li class="nav-dropdown">
           <button aria-haspopup="true" aria-expanded="false">Narrative <span class="dropdown-arrow">&#9660;</span></button>
           <div class="dropdown-menu">
-            <a href="page5.html">Argument 1</a>
-            <a href="page8.html">Argument 2</a>
-            <a href="page9.html">Argument 3</a>
+            <a href="page5.html">Listing Concentration</a>
+            <a href="page8.html">Housing Commodification</a>
+            <a href="page9.html">Commercial Hosting</a>
             <a href="page10.html">Conclusions</a>
-            <a href="dataviz.html">Data Viz</a>
+
           </div>
         </li>
         <li class="nav-dropdown">
@@ -54,7 +54,7 @@
 
   <header class="page-header">
     <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80" alt="Data visualization on a screen">
+      <img src="https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=1600&q=80" alt="Los Angeles skyline at night">
     </div>
     <div class="hero-overlay"></div>
     <div class="page-header-content">
@@ -73,43 +73,17 @@
 
         <div class="subsection">
           <h3>Data Critique: American Community Survey (ACS)</h3>
-          <p>The <strong>American Community Survey</strong> is an ongoing national survey conducted by the <strong>U.S. Census Bureau</strong> that produces demographic, economic, and housing data at multiple geographic levels. Since it is sample-based, all figures contain <strong>margins of error</strong> and represent estimates instead of exact counts.</p>
-          <p>The ACS allows us to analyze structural neighborhood patterns such as <strong>income levels</strong>, <strong>educational achievement</strong>, <strong>racial structure</strong>, and <strong>housing occupancy</strong>. However, it does not include tourists, Airbnb guests, short-term housing turnover, or lived experiences of displacement. Its categories reflect standardized government groupings that form what becomes observable while eliminating more fluid or informal social realities.</p>
-          <p>If applied alone, the ACS would present Los Angeles neighborhoods as stable demographic units. By layering <strong>Airbnb listing data</strong> onto this structure, our project focuses on how short-term rental markets connect with and reform long-term residential communities.</p>
+          <p>The American Community Survey is an ongoing national survey conducted by the U.S. Census Bureau that produces demographic, economic, and housing data at multiple geographic levels. Since it is sample-based, all figures contain margins of error and represent estimates instead of exact counts.</p>
+          <p>The ACS allows us to analyze structural neighborhood patterns such as income levels, educational achievement, racial structure, and housing occupancy. However, it does not include tourists, Airbnb guests, short-term housing turnover, or lived experiences of displacement. Its categories reflect standardized government groupings that form what becomes observable while eliminating more fluid or informal social realities.</p>
+          <p>If applied alone, the ACS would present Los Angeles neighborhoods as stable demographic units. By layering Airbnb listing data onto this structure, our project focuses on how short-term rental markets connect with and reform long-term residential communities.</p>
         </div>
 
         <div class="subsection">
           <h3>Data Critique: InsideAirbnb</h3>
-          <p><strong>InsideAirbnb</strong> is a publicly accessible, activist-oriented data project created by Murray Cox and now maintained by the nonprofit <strong>Housing Justice Data Lab (HJDL)</strong>. The Los Angeles dataset is composed of five primary files: <strong>listings.csv.gz</strong> (listing ID, host ID, latitude/longitude, room type, price, availability, review counts, and host listing counts), <strong>calendar.csv.gz</strong> (daily availability and price data), <strong>reviews.csv.gz</strong> (review ID, date, and comment text), <strong>neighborhoods.csv</strong>, and <strong>neighborhoods.geojson</strong> (neighborhood names and boundary geometries).</p>
+          <p>InsideAirbnb is a publicly accessible, activist-oriented data project created by Murray Cox and now maintained by the nonprofit Housing Justice Data Lab (HJDL). The Los Angeles dataset is composed of five primary files: listings.csv.gz (listing ID, host ID, latitude/longitude, room type, price, availability, review counts, and host listing counts), calendar.csv.gz (daily availability and price data), reviews.csv.gz (review ID, date, and comment text), neighborhoods.csv, and neighborhoods.geojson (neighborhood names and boundary geometries).</p>
           <p>Because InsideAirbnb focuses on listings and hosts, it frames Airbnb mainly as a supply-side housing transformation rather than a dataset of traveler behavior. This makes it easier to examine commodification and spatial clustering, but harder to measure lived displacement or the direct motivations of guests.</p>
-          <p><strong>What it allows us to measure:</strong> listing density and spatial focus, entire-home vs. private-room commodification, multi-listing (professionalized) hosts, and visible changes around 2020 via review timestamps and availability patterns. <strong>What it does not include:</strong> confirmed booking counts, actual revenue or payout data, guest demographics, or platform search ranking, enforcement records, or internal transaction data.</p>
+          <p>What it allows us to measure: listing density and spatial focus, entire-home vs. private-room commodification, multi-listing (professionalized) hosts, and visible changes around 2020 via review timestamps and availability patterns. What it does not include: confirmed booking counts, actual revenue or payout data, guest demographics, or platform search ranking, enforcement records, or internal transaction data.</p>
         </div>
-      </section>
-
-      <section class="section">
-        <h2>Spatial Units &amp; Geography</h2>
-        <div class="divider"></div>
-        <p>Our primary spatial unit of analysis is the <strong>census tract</strong> — small, relatively stable geographic subdivisions used by the U.S. Census Bureau. By joining Airbnb listing coordinates (latitude/longitude) to census tracts, we can compare platform-visible rental activity to long-term neighborhood demographic and socioeconomic conditions at a granular level.</p>
-        <p>We also use <strong>InsideAirbnb's neighborhood boundaries</strong> (from neighborhoods.geojson) for neighborhood-level aggregation, and <strong>Census County Divisions (CCDs)</strong> for broader regional comparisons — particularly when analyzing income and listing count patterns across LA County.</p>
-
-        <div class="subsection">
-          <h3>ACS tables used</h3>
-          <ul>
-            <li><strong>DP05</strong> — Demographic and Housing Estimates (race, ethnicity, population)</li>
-            <li><strong>S0101</strong> — Age and Sex</li>
-            <li><strong>S1901</strong> — Household Income in the Past 12 Months</li>
-            <li><strong>S1501</strong> — Educational Attainment</li>
-            <li><strong>S2503</strong> — Financial Characteristics (housing cost burden, tenure)</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Methods &amp; Spatial Approach</h2>
-        <div class="divider"></div>
-        <p>We cleaned and structured the InsideAirbnb listings, standardized price variables, and identified multi-listing hosts using the <strong>calculated_host_listings_count</strong> field. Using geographic coordinates, we joined listings to census tracts and linked ACS demographic data. This spatial join allows us to calculate listings per capita, examine entire-home concentration, identify professional host clustering, and compare Airbnb density to neighborhood-level income and housing conditions.</p>
-        <p>We also analyzed review timestamps and daily calendar data to compare platform-visible patterns before and after 2020. While these methods do not represent confirmed bookings, they provide observable signals of platform-visible change over time.</p>
-        <p>Methodologically, we prevent <strong>ecological fallacy</strong> by not attributing tract-level demographics to individual hosts or guests. Instead, we analyze physical co-location patterns: where listings appear relative to neighborhood conditions — not who the hosts or guests are as individuals.</p>
       </section>
 
       <section class="section">
@@ -122,7 +96,7 @@
 
       <div class="up-next">
         <p class="label">Up Next</p>
-        <h3>Argument 1</h3>
+        <h3>Listing Concentration</h3>
         <a href="page5.html" class="btn btn-primary">Continue &rarr;</a>
       </div>
 

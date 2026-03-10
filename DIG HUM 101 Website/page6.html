@@ -33,11 +33,11 @@
         <li class="nav-dropdown">
           <button aria-haspopup="true" aria-expanded="false">Narrative <span class="dropdown-arrow">&#9660;</span></button>
           <div class="dropdown-menu">
-            <a href="page5.html">Argument 1</a>
-            <a href="page8.html">Argument 2</a>
-            <a href="page9.html">Argument 3</a>
+            <a href="page5.html">Listing Concentration</a>
+            <a href="page8.html">Housing Commodification</a>
+            <a href="page9.html">Commercial Hosting</a>
             <a href="page10.html">Conclusions</a>
-            <a href="dataviz.html">Data Viz</a>
+
           </div>
         </li>
         <li class="nav-dropdown">
@@ -62,38 +62,32 @@
     <div class="container">
 
       <section class="section">
-        <h2>About Our Project</h2>
-        <div class="divider"></div>
-        <div class="placeholder"><span>Content goes here</span></div>
-      </section>
-
-      <section class="section">
         <h2>What went into our project?</h2>
         <div class="divider"></div>
 
         <div class="subsection">
           <h3>Selecting Our Sources</h3>
-          <p><strong>InsideAirbnb</strong> provides a high-resolution view of platform-generated housing supply, while the <strong>ACS</strong> offers a structural view of neighborhood demographics and socioeconomic conditions.</p>
-          <p>By <strong>spatially joining listings</strong> (latitude/longitude) to census tracts, we do not claim that area demographics describe individual hosts or guests. Instead, we analyze <strong>co-location patterns</strong>:</p>
+          <p>InsideAirbnb provides a high-resolution view of platform-generated housing supply, while the ACS offers a structural view of neighborhood demographics and socioeconomic conditions.</p>
+          <p>By spatially joining listings (latitude/longitude) to census tracts, we do not claim that area demographics describe individual hosts or guests. Instead, we analyze co-location patterns:</p>
           <ul>
-            <li>Where do <strong>entire-home listings</strong> cluster relative to income levels?</li>
-            <li>Where do <strong>multi-listing hosts</strong> appear in relation to rent-burdened areas?</li>
-            <li>Which <strong>demographic contexts</strong> overlap with high Airbnb density?</li>
+            <li>Where do entire-home listings cluster relative to income levels?</li>
+            <li>Where do multi-listing hosts appear in relation to rent-burdened areas?</li>
+            <li>Which demographic contexts overlap with high Airbnb density?</li>
           </ul>
-          <p>If we relied only on InsideAirbnb, Los Angeles would act as a marketplace of listings. If we relied only on the ACS, Los Angeles would act as static demographic zones. By combining them, we analyze how a <strong>digital platform economy</strong> overlaps and interacts with long-term community structures, helping answer our central research question: <em>How does Airbnb spatially shape and commodify communities in Los Angeles &mdash; and for whom?</em></p>
+          <p>If we relied only on InsideAirbnb, Los Angeles would act as a marketplace of listings. If we relied only on the ACS, Los Angeles would act as static demographic zones. By combining them, we analyze how a digital platform economy overlaps and interacts with long-term community structures, helping answer our central research question: How does Airbnb spatially shape and commodify communities in Los Angeles &mdash; and for whom?</p>
         </div>
 
         <div class="subsection">
           <h3>Processing Our Data</h3>
-          <p>We cleaned and structured the <strong>InsideAirbnb listings</strong>, standardized price variables, and identified <strong>multi-listing hosts</strong>. Using geographic coordinates, we corresponded listings to <strong>census tracts</strong> and joined ACS demographic data. This spatial join allows us to calculate <strong>listings per capita</strong>, examine entire-home concentration, identify professional host clustering, and compare Airbnb density to neighborhood-level income and housing conditions.</p>
-          <p>We also observed <strong>review timestamps</strong> and <strong>daily calendar data</strong> to compare visible patterns before and after 2020. While these methods do not signify confirmed bookings, they provide a suggestion of platform-visible change over time.</p>
-          <p>Methodologically, we prevent <strong>ecological misconceptions</strong> by not attaching tract-level demographics to individual hosts or guests. Instead, we analyze physical co-location patterns. We also treat <strong>data gaps</strong>&mdash;like missing booking records and displacement data&mdash;as significant limits that form interpretation.</p>
+          <p>We cleaned and structured the InsideAirbnb listings, standardized price variables, and identified multi-listing hosts. Using geographic coordinates, we corresponded listings to census tracts and joined ACS demographic data. This spatial join allows us to calculate listings per capita, examine entire-home concentration, identify professional host clustering, and compare Airbnb density to neighborhood-level income and housing conditions.</p>
+          <p>We also observed review timestamps and daily calendar data to compare visible patterns before and after 2020. While these methods do not signify confirmed bookings, they provide a suggestion of platform-visible change over time.</p>
+          <p>Methodologically, we prevent ecological misconceptions by not attaching tract-level demographics to individual hosts or guests. Instead, we analyze physical co-location patterns. We also treat data gaps&mdash;like missing booking records and displacement data&mdash;as significant limits that form interpretation.</p>
         </div>
 
         <div class="subsection">
           <h3>Presenting Our Narrative</h3>
-          <p>We designed our site in <strong>Figma</strong> first so we could lock in the layout, spacing, and visual style before writing any code. Then we built the actual website in <strong>JavaScript</strong>, using <strong>VS Code</strong> as our IDE to develop and organize the project efficiently.</p>
-          <p>To publish the site, we deployed it on <strong>Vercel</strong>, which made hosting straightforward and let us push updates quickly without manually managing servers or file uploads. This workflow&mdash;Figma for planning, JavaScript for implementation, VS Code for development, and Vercel for deployment&mdash;helped us stay consistent between the design and final product while keeping iteration fast as we refined the site.</p>
+          <p>We designed our site in Figma first so we could lock in the layout, spacing, and visual style before writing any code. Then we built the actual website in JavaScript, using VS Code as our IDE to develop and organize the project efficiently.</p>
+          <p>To publish the site, we deployed it on Vercel, which made hosting straightforward and let us push updates quickly without manually managing servers or file uploads. This workflow&mdash;Figma for planning, JavaScript for implementation, VS Code for development, and Vercel for deployment&mdash;helped us stay consistent between the design and final product while keeping iteration fast as we refined the site.</p>
         </div>
       </section>
 

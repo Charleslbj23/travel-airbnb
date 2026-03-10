@@ -33,11 +33,11 @@
         <li class="nav-dropdown">
           <button aria-haspopup="true" aria-expanded="false">Narrative <span class="dropdown-arrow">&#9660;</span></button>
           <div class="dropdown-menu">
-            <a href="page5.html">Argument 1</a>
-            <a href="page8.html">Argument 2</a>
-            <a href="page9.html">Argument 3</a>
+            <a href="page5.html">Listing Concentration</a>
+            <a href="page8.html">Housing Commodification</a>
+            <a href="page9.html">Commercial Hosting</a>
             <a href="page10.html">Conclusions</a>
-            <a href="dataviz.html">Data Viz</a>
+
           </div>
         </li>
         <li class="nav-dropdown">
@@ -68,36 +68,18 @@
     <div class="container">
 
       <section class="section">
-        <h2>A History of Short-Term Rentals in Los Angeles</h2>
+        <h2>Introduction</h2>
         <div class="divider"></div>
-        <p>Los Angeles has one of the most complex and contested short-term rental histories of any American city. The tensions that Airbnb surfaced &mdash; between tourism and tenancy, between property rights and community stability &mdash; were not created by the platform. They were inherited from decades of prior policy decisions about who gets to live in Los Angeles and under what conditions.</p>
-        <p>The foundation of those tensions is the city&rsquo;s housing stock itself. When the Rent Stabilization Ordinance (RSO) passed in 1978, it capped rent increases on roughly 624,000 units built on or before October 1, 1978 &mdash; a legal protection that remains in effect today and that would later become the central mechanism for restricting Airbnb use. The RSO was designed to protect long-term renters from displacement during periods of rapid rent inflation. It also, inadvertently, drew a legal boundary that would later determine which homes could be listed on short-term rental platforms and which could not.</p>
-        <p>The next major disruption came not from technology but from the state. California&rsquo;s Ellis Act of 1985 gave landlords the right to remove properties from the rental market entirely, enabling mass evictions in rent-stabilized buildings. Ellis Act evictions surged in later decades as property values rose, accelerating displacement especially in coastal neighborhoods that would later become Airbnb&rsquo;s most concentrated markets. By the time Airbnb launched in 2008 and arrived meaningfully in Los Angeles around 2012&ndash;2014, it entered a housing market already under severe pressure from gentrification, speculation, and a decades-long shortage of affordable units.</p>
-        <p>Airbnb&rsquo;s growth in Los Angeles was rapid. By 2015, the platform had enough listings to attract serious policy attention, and city council members began introducing proposed regulations. But Los Angeles did not pass enforceable rules for three years. The Home-Sharing Ordinance, adopted on December 11, 2018, and effective July 1, 2019, ultimately required hosts to register with the city, restricted short-term rentals to primary residences only, capped rentals at 120 days per year (or year-round with extended home-sharing approval), and banned all RSO-covered units from the platform entirely. It was one of the most restrictive short-term rental ordinances in the country.</p>
-        <p>Enforcement, however, proved uneven. The license field in InsideAirbnb data &mdash; which should reflect compliance with the Home-Sharing Ordinance &mdash; is frequently blank or populated with placeholder values, suggesting that a significant fraction of listings were operating without valid registration even after the ordinance took effect. The COVID-19 pandemic then upended the market entirely: listings dropped sharply in 2020, a city-wide rent freeze halted evictions, and the tourism economy that sustained coastal Airbnb markets nearly collapsed. Recovery was rapid. By 2022&ndash;2023, listing counts had rebounded, and the platform&rsquo;s geographic footprint had expanded.</p>
-        <p>This history matters for interpreting our data. The patterns we observe &mdash; clustering in coastal and tourist-adjacent neighborhoods, dominance of entire-home listings, high rates of multi-listing commercial operators &mdash; are not random. They reflect accumulation: of capital, of policy gaps, of displacement pressure that preceded the platform by decades.</p>
+        <p>The short-term rental platform Airbnb has rapidly expanded in cities around the world, raising questions about how digital platforms reshape housing markets and urban neighborhoods.<a href="#fn-1" id="ref-1" class="cite-ref">[1]</a> In Los Angeles, a city shaped by tourism and housing inequality, Airbnb listings have spread across many communities where residential housing can increasingly function as short-term tourist accommodation.<a href="#fn-2" id="ref-2" class="cite-ref">[2]</a> This project examines how Airbnb activity is distributed across Los Angeles and how these patterns relate to neighborhood demographics and housing conditions.</p>
+        <p>To explore this question, the analysis combines listing-level data from the InsideAirbnb Los Angeles dataset with demographic information from the U.S. Census Bureau's American Community Survey (ACS). The InsideAirbnb dataset provides detailed information about listing locations, room types, hosts, and prices, allowing us to identify where short-term rentals cluster and how properties are used on the platform.<a href="#fn-3" id="ref-3" class="cite-ref">[3]</a> The ACS dataset provides socioeconomic indicators such as income, education, and housing characteristics that help contextualize the communities where these listings appear.<a href="#fn-4" id="ref-4" class="cite-ref">[4]</a> Together, these datasets allow the project to examine how Airbnb activity overlaps with the social and economic structure of Los Angeles neighborhoods.</p>
       </section>
 
       <section class="section">
-        <h2>Key Policy Moments</h2>
+        <h2>Research Context and Significance</h2>
         <div class="divider"></div>
-        <ul class="styled-list">
-          <li><strong>1978 &mdash; Rent Stabilization Ordinance (RSO):</strong> Los Angeles enacts the RSO, capping rent increases on approximately 624,000 units built on or before October 1, 1978. RSO protections will later prohibit those units from short-term rental use entirely.</li>
-          <li><strong>1985 &mdash; California Ellis Act:</strong> State law allows landlords to permanently remove properties from the rental market, enabling mass evictions of rent-stabilized tenants. Ellis Act evictions accelerate displacement in neighborhoods that later become Airbnb hotspots.</li>
-          <li><strong>2008 &mdash; Airbnb Founded:</strong> Airbnb launches in San Francisco as an air mattress rental service. The platform expands nationally and arrives meaningfully in Los Angeles around 2012&ndash;2014.</li>
-          <li><strong>2015&ndash;2018 &mdash; Regulatory Debate:</strong> Multiple proposed regulations circulate through the LA City Council without passage. Housing advocates and industry lobbyists contest the scope and enforcement mechanisms of any future ordinance.</li>
-          <li><strong>December 11, 2018 &mdash; Home-Sharing Ordinance Adopted:</strong> Los Angeles Municipal Code &sect; 12.22 A.32 is passed, requiring host registration, limiting rentals to primary residences, capping stays at 120 days per year, and banning all RSO units from the platform.</li>
-          <li><strong>July 1, 2019 &mdash; Home-Sharing Ordinance Takes Effect:</strong> The ordinance becomes enforceable. Compliance is immediately uneven: a substantial share of active listings show no valid registration number in platform data.</li>
-          <li><strong>March 2020 &mdash; COVID-19 Pandemic:</strong> Los Angeles enters lockdown. Airbnb listings drop sharply. The city enacts a rent freeze preventing evictions, temporarily stabilizing housing costs in RSO-covered units.</li>
-          <li><strong>2021&ndash;2022 &mdash; Market Recovery:</strong> Tourism rebounds and Airbnb listing counts recover, with the platform&rsquo;s geographic footprint expanding into previously underrepresented neighborhoods.</li>
-          <li><strong>2023&ndash;2025 &mdash; Continued Enforcement Gaps:</strong> Despite the Home-Sharing Ordinance, enforcement remains a challenge. InsideAirbnb data shows continued high rates of missing or invalid license numbers, particularly in high-density listing neighborhoods.</li>
-        </ul>
-
-        <div class="callout-box" style="margin-top: 2.5rem; background: var(--card); border-left: 4px solid var(--coral); padding: 1.5rem 2rem; border-radius: 0 var(--radius) var(--radius) 0;">
-          <p style="margin: 0 0 0.75rem; font-weight: 700; color: var(--coral); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.08em;">Explore the Full Timeline</p>
-          <p style="margin: 0 0 1rem;">Our interactive timeline traces all 11 eras of LA short-term rental history in detail, with primary source citations for each entry &mdash; from the 1978 RSO through the post-pandemic recovery.</p>
-          <a href="timeline.html" class="btn btn-primary">View Interactive Timeline &rarr;</a>
-        </div>
+        <p>Scholars studying short-term rental platforms often focus on how Airbnb affects housing markets, neighborhood change, and tourism economies in major cities. Some research argues that converting entire homes into short-term rentals can reduce the supply of long-term housing and increase housing pressure in already expensive cities.<a href="#fn-5" id="ref-5" class="cite-ref">[5]</a><a href="#fn-6" id="ref-6" class="cite-ref">[6]</a> Other studies examine how platform systems such as host ratings and algorithmic visibility shape participation and economic benefits in the sharing economy.<a href="#fn-7" id="ref-7" class="cite-ref">[7]</a></p>
+        <p>In cities such as Los Angeles, researchers debate whether Airbnb primarily benefits residents who occasionally rent out spare space or whether it encourages professionalized hosting where investors manage multiple listings as commercial properties.<a href="#fn-1" class="cite-ref">[1]</a> Although there is broad agreement that Airbnb influences urban housing markets, scholars continue to debate the scale and distribution of these impacts across different neighborhoods.</p>
+        <p>This project contributes to this discussion by combining platform data with census-based neighborhood information to examine how Airbnb activity overlaps with existing community conditions in Los Angeles. By mapping listing concentration and comparing these patterns with demographic indicators, the analysis focuses on where short-term rental activity is most visible and what types of housing and neighborhoods are most affected.</p>
       </section>
 
       <div class="up-next">
@@ -108,6 +90,22 @@
 
     </div>
   </main>
+
+  <aside class="narrative-sources">
+    <div class="container">
+      <h2>Sources</h2>
+      <div class="divider divider-center"></div>
+      <ol class="citation-list">
+        <li id="fn-1">Wachsmuth, David, and Alexander Weisler. &ldquo;Airbnb and the Rent Gap: Gentrification Through the Sharing Economy.&rdquo; <em>Environment and Planning A: Economy and Space</em>, vol. 50, no. 6, 2018. <a href="#ref-1" class="fn-back">&#8617;</a></li>
+        <li id="fn-2">LAANE. <em>Airbnb, Rising Rent, and the Housing Crisis in Los Angeles.</em> Los Angeles Alliance for a New Economy, 2015. <a href="#ref-2" class="fn-back">&#8617;</a></li>
+        <li id="fn-3">Inside Airbnb. <em>Inside Airbnb: Los Angeles Dataset.</em> <a href="https://insideairbnb.com/los-angeles" target="_blank" rel="noopener">https://insideairbnb.com/los-angeles</a>. <a href="#ref-3" class="fn-back">&#8617;</a></li>
+        <li id="fn-4">United States Census Bureau. <em>American Community Survey (ACS).</em> <a href="https://www.census.gov/programs-surveys/acs" target="_blank" rel="noopener">https://www.census.gov/programs-surveys/acs</a>. <a href="#ref-4" class="fn-back">&#8617;</a></li>
+        <li id="fn-5">Lee, Dayne. &ldquo;How Airbnb Short-Term Rentals Exacerbate Los Angeles&rsquo;s Affordable Housing Crisis.&rdquo; <em>Harvard Law &amp; Policy Review</em>, vol. 10, 2016. <a href="#ref-5" class="fn-back">&#8617;</a></li>
+        <li id="fn-6">Barron, Kyle, et al. &ldquo;The Effect of Home-Sharing on House Prices and Rents: Evidence from Airbnb.&rdquo; <em>Marketing Science</em>, vol. 40, no. 1, 2021. <a href="#ref-6" class="fn-back">&#8617;</a></li>
+        <li id="fn-7">Sundararajan, Arun. <em>The Sharing Economy: The End of Employment and the Rise of Crowd-Based Capitalism.</em> MIT Press, 2016. <a href="#ref-7" class="fn-back">&#8617;</a></li>
+      </ol>
+    </div>
+  </aside>
 
   <footer class="footer">
     <div class="container">
