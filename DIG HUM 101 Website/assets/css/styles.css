@@ -1087,6 +1087,17 @@ p {
   color: var(--coral-dark);
 }
 
+.footer-github {
+  display: inline-block;
+  color: var(--gray);
+  transition: color 0.2s;
+  margin: 8px 0;
+}
+
+.footer-github:hover {
+  color: var(--coral);
+}
+
 /* ===== Prose content (paragraphs, lists inside sections) ===== */
 .section p,
 .subsection p {
