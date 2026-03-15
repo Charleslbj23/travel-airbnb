@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -67,15 +67,15 @@
       <section class="section" data-reveal>
         <h2>Who controls Airbnb in Los Angeles?</h2>
         <div class="divider"></div>
-        <p>While the dominance of entire-home listings reveals how housing units are converted into short-term rentals, an equally important question follows: who controls these properties? Examining the distribution of listings across hosts reveals that Airbnb activity in Los Angeles is highly concentrated among a relatively small group of commercial operators. There are approximately 23,005 unique hosts in the dataset, yet only 5,855 hosts (25.5%) manage more than one listing. Despite representing a minority of hosts, these multi-listing operators control 28,435 listings, accounting for roughly 62.4% of all platform supply. The remaining 17,150 hosts (74.5%) each manage a single listing and together account for just 37.6% of total listings.</p>
+        <p>While the dominance of entire-home listings reveals how housing units are converted into short-term rentals, an important question follows: who controls these properties? Examining the distribution of listings across hosts reveals that Airbnb activity in Los Angeles is highly concentrated among a relatively small group of commercial operators. There are approximately 23,005 unique hosts in the dataset, yet only 5,855 hosts (25.5%) manage more than one listing. Despite representing a minority of hosts, these multi-listing operators control 28,435 listings, accounting for roughly 62.4% of all platform supply. The remaining 17,150 hosts (74.5%) each manage a single listing and together account for just 37.6% of total listings.</p>
         <div class="chart-container" data-reveal style="background: var(--card, #fff); border-radius: 8px; padding: 24px 16px 16px; border: 1px solid #EBEBEB; margin: 20px 0 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
           <p style="font-size: 0.8rem; font-weight: 600; text-align: center; color: #222; margin-bottom: 12px;">Figure 3 &mdash; Listings by Host Type Across LA County</p>
           <div style="position: relative; height: 340px;"><canvas id="chartViz2"></canvas></div>
           <p style="font-size: 0.7rem; color: #767676; text-align: center; margin-top: 8px;">Source: InsideAirbnb (calculated_host_listings_count), December 2025</p>
         </div>
-        <p>This imbalance is significant. While Airbnb markets itself as a platform for neighbors sharing their homes, the data tells a different story. A small group of operators controls the majority of supply, suggesting that the platform increasingly functions as a vehicle for professionalized property management rather than casual home sharing (Belasco, 2021). In some cases, individual hosts manage dozens of listings simultaneously, indicating a form of small-scale real estate entrepreneurship operating through the platform rather than genuine peer-to-peer exchange.</p>
-        <p>Neighborhood-level context from the American Community Survey helps explain where and why these patterns emerge. In many Los Angeles communities, a large share of housing units are renter-occupied, which makes properties more fluid within local housing markets and easier to convert into short-term rental inventory (Cocola-Gant and Guterres, 2021). Research on LA specifically has shown that multi-listing hosts tend to concentrate in neighborhoods where the financial return on short-term rentals far exceeds what long-term tenants would pay, a dynamic that Wachsmuth and Weisler (2018) describe as the platform-driven &ldquo;rent gap.&rdquo; In this context, Airbnb does not simply reflect existing housing conditions, it actively reshapes them by making commercial hosting financially attractive in neighborhoods that were previously residential.</p>
-        <p>Taken together, the concentration of listings among a small group of multi-listing operators suggests that Airbnb in Los Angeles increasingly resembles a commercialized accommodation market. The platform&rsquo;s visible supply is controlled not primarily by residents sharing spare space, but by operators managing housing as a business, raising important questions about who benefits from the platform economy, and at whose expense.</p>
+        <p>Airbnb markets itself as a platform for neighbors sharing their homes, however, the data suggests a different pattern. A relatively small group of operators controls the majority of listings, indicating that the platform increasingly functions as a system of professionalized property management and not casual home sharing (Belasco 2021).<a href="#fn-9" id="ref-9" class="cite-ref">[9]</a> In some cases, individual hosts manage dozens of listings simultaneously, indicating a form of small-scale real estate entrepreneurship rather than genuine peer-to-peer home sharing.</p>
+        <p>Neighborhood-level data from the American Community Survey helps explain where these patterns appear. In many Los Angeles neighborhoods, a large share of housing units are occupied by renters which can make properties easier to shift between long-term housing and short-term rentals (Cocola-Gant and Guterres 2021).<a href="#fn-10" id="ref-10" class="cite-ref">[10]</a> Research on LA also shows that multi-listing hosts tend to concentrate in areas where short-term rentals generate much higher income than traditional long-term rents, a dynamic that Wachsmuth and Weisler (2018) describe as the platform-driven &ldquo;rent gap.&rdquo;<a href="#fn-1" id="ref-1" class="cite-ref">[1]</a> In this context, Airbnb does not just reflect existing housing conditions; it can also reshape them by making commercial short-term rentals financially attractive in neighborhoods that were previously residential.</p>
+        <p>Overall, the concentration of listings among a small group of multi-listing operators suggests that Airbnb in LA increasingly functions as a commercial rental market. Instead of residents occasionally sharing extra space, many listings are managed by operators treating housing as a business. This shift raises important questions about who benefits from the platform economy and who bears its costs.</p>
       </section>
 
       <div class="up-next" data-reveal>
@@ -86,6 +86,18 @@
 
     </div>
   </main>
+
+  <aside class="narrative-sources">
+    <div class="container">
+      <h2>Sources</h2>
+      <div class="divider divider-center"></div>
+      <ol class="citation-list">
+        <li id="fn-1" data-cite="1">Wachsmuth, David, and Alexander Weisler. &ldquo;Airbnb and the Rent Gap: Gentrification Through the Sharing Economy.&rdquo; <em>Environment and Planning A: Economy and Space</em>, vol. 50, no. 6, 2018. <a href="https://ideas.repec.org/a/sae/envira/v50y2018i6p1147-1170.html" target="_blank" rel="noopener">https://ideas.repec.org/a/sae/envira/v50y2018i6p1147-1170.html</a>. <a href="#ref-1" class="fn-back">&#8617;</a></li>
+        <li id="fn-9" data-cite="9">Belasco, Max Harris. <em>Mapping AirBnB in Los Angeles.</em> 2021. ProQuest Dissertations &amp; Theses. <a href="https://www.proquest.com/docview/2510206531" target="_blank" rel="noopener">https://www.proquest.com/docview/2510206531</a>. <a href="#ref-9" class="fn-back">&#8617;</a></li>
+        <li id="fn-10" data-cite="10">Cocola-Gant, Agustin, and Antonio Guterres. &ldquo;Tourism-Gentrification in Los Angeles: The Role of Airbnb in the Commodification of the Housing Market.&rdquo; <em>Geographical Review</em>, vol. 111, no. 1, 2021, pp. 54&ndash;75. <a href="https://doi.org/10.1080/00167428.2020.1818294" target="_blank" rel="noopener">https://doi.org/10.1080/00167428.2020.1818294</a>. <a href="#ref-10" class="fn-back">&#8617;</a></li>
+      </ol>
+    </div>
+  </aside>
 
   <footer class="footer">
     <div class="container">

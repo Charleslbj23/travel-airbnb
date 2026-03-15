@@ -1978,6 +1978,11 @@ main {
   text-align: right;
 }
 
+.citation-list li[data-cite]::before {
+  counter-increment: none;
+  content: "[" attr(data-cite) "]";
+}
+
 .citation-list li a {
   color: var(--coral);
   word-break: break-all;
